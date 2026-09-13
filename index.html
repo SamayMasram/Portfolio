@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samay Masram | Software Developer & Java Backend Engineer</title>
+  <meta name="description"
+    content="Portfolio of Samay Masram - Computer Science undergraduate graduating in 2027 with hands-on experience in Java, JDBC, JSP, Servlets, MySQL, MVC architecture, and Data Structures & Algorithms.">
+  <meta name="keywords"
+    content="Samay Masram, Software Developer, Java Engineer, Backend Developer, Quiz Management System, Expense Tracker, LeetCode, GitHub">
+  <meta name="author" content="Samay Masram">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Samay Masram | Software Developer & Java Engineer">
+  <meta property="og:description"
+    content="Backend Java Developer specializing in JDBC, JSP, Servlets, MySQL, and Data Structures. Explore my projects and GitHub contributions.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-code">&lt;</span>SamayMasram <span class="logo-code">/&gt;</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="#leetcode" class="nav-link">LeetCode</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" id="btn-resume-modal">
+          <i class="fa-solid fa-file-lines"></i> Resume
+        </button>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Computer Science Undergrad '27 • Java Backend Engineer</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="highlight-text">Samay Masram</span>
+        </h1>
+
+        <div class="hero-subtitle">
+          Building <span class="typing-text" id="typing-text"></span><span class="cursor">&nbsp;</span>
+        </div>
+
+        <p class="hero-description">
+          Computer Science undergraduate graduating in 2027 with hands-on experience developing Java applications using
+          <strong>JDBC, JSP, Servlets, and MySQL</strong>. Passionate about clean MVC architecture, layered application
+          design, and solving complex DSA challenges.
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number" data-target="120">0+</div>
+            <div class="stat-label">LeetCode DSA Solved</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">Java</div>
+            <div class="stat-label">Core Specialty</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7.43</div>
+            <div class="stat-label">B.Tech CSE GPA</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2026</div>
+            <div class="stat-label">Sunbeam Intern</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-code"></i> Explore Projects
+          </a>
+          <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <i class="fa-brands fa-github"></i> GitHub Profile
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <i class="fa-solid fa-paper-plane"></i> Let's Connect
+          </a>
+        </div>
+
+        <!-- Quick Social links -->
+        <div class="hero-socials">
+          <span class="social-label">Connect:</span>
+          <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" title="GitHub"
+            class="social-icon">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer" title="LeetCode"
+            class="social-icon">
+            <i class="fa-solid fa-code"></i>
+          </a>
+          <a href="https://x.com/MasramSamay" target="_blank" rel="noopener noreferrer" title="X (Twitter)"
+            class="social-icon">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:samaymasram1404@gmail.com" title="Email" class="social-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="window-header">
+            <div class="window-buttons">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="window-title">DeveloperProfile.java</div>
+          </div>
+          <div class="window-body">
+            <pre><code><span class="kwd">public class</span> <span class="cls">SamayMasram</span> <span class="kwd">implements</span> <span class="cls">Developer</span> {
+    <span class="kwd">private String</span> name = <span class="str">"Samay Masram"</span>;
+    <span class="kwd">private String</span> role = <span class="str">"Backend Java Developer"</span>;
+    <span class="kwd">private String</span> education = <span class="str">"B.Tech CSE @ D.K.T.E. (2027)"</span>;
+    <span class="kwd">private String[]</span> coreSkills = {
+        <span class="str">"Java"</span>, <span class="str">"JDBC"</span>, <span class="str">"JSP"</span>, <span class="str">"Servlets"</span>, 
+        <span class="str">"MySQL"</span>, <span class="str">"MVC Architecture"</span>, <span class="str">"DSA"</span>
+    };
+
+    <span class="kwd">public void</span> <span class="mtd">buildSolution</span>() {
+        <span class="cls">System</span>.out.<span class="mtd">println</span>(<span class="str">"Designing robust & scalable software!"</span>);
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">BACKGROUND & EDUCATION</span>
+        <h2 class="section-title">About <span class="highlight-text">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card bio-card">
+          <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+          <h3>Professional Summary</h3>
+          <p>
+            I am a Computer Science undergraduate graduating in <strong>2027</strong> with hands-on experience building
+            Java applications using <strong>JDBC, JSP, Servlets, and MySQL</strong>.
+          </p>
+          <p>
+            I focus on designing clean <strong>MVC architecture</strong>, database integration, and layered DAO/Service
+            patterns. Currently actively expanding my knowledge in Data Structures & Algorithms, DBMS, and
+            high-performance backend systems.
+          </p>
+
+          <div class="key-traits">
+            <span class="trait-tag"><i class="fa-solid fa-check"></i> Java MVC Architecture</span>
+            <span class="trait-tag"><i class="fa-solid fa-check"></i> Database Optimization</span>
+            <span class="trait-tag"><i class="fa-solid fa-check"></i> Clean DAO Design</span>
+            <span class="trait-tag"><i class="fa-solid fa-check"></i> 120+ DSA Problem Solver</span>
+          </div>
+        </div>
+
+        <!-- Education Timeline -->
+        <div class="about-card education-card">
+          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Education Background</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023 – 2027 (Graduating)</span>
+                <h4>B.Tech in Computer Science & Engineering</h4>
+                <p class="institute">D.K.T.E. Society's Textile & Engineering Institute</p>
+                <div class="gpa-badge">GPA: 7.43</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023</span>
+                <h4>Higher Secondary Certificate (HSC)</h4>
+                <p class="institute">Maharashtra State Board</p>
+                <div class="score-badge">Score: 67%</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2021</span>
+                <h4>Secondary School Certificate (SSC)</h4>
+                <p class="institute">Maharashtra State Board</p>
+                <div class="score-badge">Score: 89%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internship Experience Section -->
+  <section class="section experience-section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">INDUSTRY EXPERIENCE</span>
+        <h2 class="section-title">Work <span class="highlight-text">Experience</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="experience-wrapper">
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title-group">
+              <div class="company-logo">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <div>
+                <h3 class="exp-role">Intern, Java Development</h3>
+                <h4 class="exp-company">Sunbeam Infotech <span class="location">• Pune, India</span></h4>
+              </div>
+            </div>
+            <div class="exp-period">
+              <i class="fa-regular fa-calendar-days"></i> Dec 2025 – Jan 2026
+            </div>
+          </div>
+
+          <div class="exp-body">
+            <p class="exp-summary">
+              Worked directly on enterprise Java backend modules, developing database-driven web applications and
+              optimizing legacy codebases.
+            </p>
+
+            <ul class="exp-bullets">
+              <li>
+                <i class="fa-solid fa-angle-right bullet-icon"></i>
+                <span>Developed and maintained a comprehensive <strong>Quiz Management System</strong> using Java, JSP,
+                  Servlets, JDBC, and MySQL.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-angle-right bullet-icon"></i>
+                <span>Implemented database-driven quiz creation and student examination workflows utilizing efficient
+                  <strong>JDBC queries & MySQL</strong> persistence.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-angle-right bullet-icon"></i>
+                <span>Debugged and resolved application bugs across the existing Java codebase, significantly improving
+                  application stability, execution speed, and user experience.</span>
+              </li>
+            </ul>
+
+            <div class="tech-stack-used">
+              <span class="stack-badge">Java</span>
+              <span class="stack-badge">JDBC</span>
+              <span class="stack-badge">JSP</span>
+              <span class="stack-badge">Servlets</span>
+              <span class="stack-badge">MySQL</span>
+              <span class="stack-badge">MVC Architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">MY TOOLKIT & STACK</span>
+        <h2 class="section-title">Technical <span class="highlight-text">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="skills-filter" id="skills-filter">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="backend">Backend & Arch</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+        <button class="filter-btn" data-filter="database">Databases</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="core">Core CS</button>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+        <!-- Java -->
+        <div class="skill-card" data-category="languages backend">
+          <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">Java</h4>
+            <span class="skill-level">Primary Language</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- C / C++ -->
+        <div class="skill-card" data-category="languages core">
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">C / C++</h4>
+            <span class="skill-level">DSA & Systems</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card" data-category="languages web">
+          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">JavaScript</h4>
+            <span class="skill-level">Frontend & Scripts</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%;"></div>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">Python</h4>
+            <span class="skill-level">Scripting & Logic</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 70%;"></div>
+          </div>
+        </div>
+
+        <!-- JDBC -->
+        <div class="skill-card" data-category="backend database">
+          <div class="skill-icon"><i class="fa-solid fa-plug"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">JDBC</h4>
+            <span class="skill-level">Database Connectivity</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- JSP & Servlets -->
+        <div class="skill-card" data-category="backend web">
+          <div class="skill-icon"><i class="fa-solid fa-server"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">JSP & Servlets</h4>
+            <span class="skill-level">Java Web Backend</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-card" data-category="backend web">
+          <div class="skill-icon"><i class="fa-brands fa-node-js"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">Node.js</h4>
+            <span class="skill-level">Runtime Engine</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 65%;"></div>
+          </div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="skill-card" data-category="database backend">
+          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">MySQL</h4>
+            <span class="skill-level">Relational Database</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="skill-card" data-category="database">
+          <div class="skill-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">MongoDB</h4>
+            <span class="skill-level">NoSQL Document Store</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 70%;"></div>
+          </div>
+        </div>
+
+        <!-- HTML5 & CSS3 -->
+        <div class="skill-card" data-category="web">
+          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">HTML5 / CSS3</h4>
+            <span class="skill-level">UI Structuring & Styling</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- Bootstrap & React -->
+        <div class="skill-card" data-category="web">
+          <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">React & Bootstrap</h4>
+            <span class="skill-level">Frontend Frameworks</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%;"></div>
+          </div>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="skill-card" data-category="core">
+          <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">Git & GitHub</h4>
+            <span class="skill-level">Version Control</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- Core CS Concepts -->
+        <div class="skill-card" data-category="core">
+          <div class="skill-icon"><i class="fa-solid fa-gears"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">OOP & MVC Architecture</h4>
+            <span class="skill-level">Software Design Patterns</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- DSA & SQL -->
+        <div class="skill-card" data-category="core backend">
+          <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <div class="skill-info">
+            <h4 class="skill-name">DSA & DBMS / SQL</h4>
+            <span class="skill-level">Core Computer Science</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">PORTFOLIO WORK</span>
+        <h2 class="section-title">Featured <span class="highlight-text">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Quiz Management System -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-badge">MVC Architecture</div>
+            <div class="project-links">
+              <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+                title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <button class="btn-icon view-arch-btn" data-project="quiz" title="View Architecture Modal">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+
+          <h3 class="project-title">Quiz Management System</h3>
+          <p class="project-description">
+            A full-featured Quiz Management application engineered using Java, JDBC, JSP, Servlets, and MySQL with a
+            strict MVC architecture (separate Model, DAO, Utility, and UI layers).
+          </p>
+
+          <ul class="project-features">
+            <li><i class="fa-solid fa-check text-coral"></i> Persistent MySQL database integration via JDBC drivers.
+            </li>
+            <li><i class="fa-solid fa-check text-coral"></i> Java Collections-based validation preventing duplicate
+              quizzes and enforcing one attempt per student.</li>
+            <li><i class="fa-solid fa-check text-coral"></i> Desktop Swing-based GUI & Web interface with real-time
+              filtering, exception handling, and input validation.</li>
+          </ul>
+
+          <div class="project-tech">
+            <span>Java</span>
+            <span>JDBC</span>
+            <span>JSP</span>
+            <span>Servlets</span>
+            <span>MySQL</span>
+            <span>MVC</span>
+            <span>Swing</span>
+          </div>
+
+          <div class="project-footer">
+            <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+              class="btn btn-outline btn-sm">
+              <i class="fa-brands fa-github"></i> GitHub Repository
+            </a>
+            <button class="btn btn-ghost btn-sm view-arch-btn" data-project="quiz">
+              <i class="fa-solid fa-layer-group"></i> Architecture Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Expense Tracker -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-badge">DAO / Service Pattern</div>
+            <div class="project-links">
+              <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+                title="View Source on GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <button class="btn-icon view-arch-btn" data-project="expense" title="View Architecture Modal">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+
+          <h3 class="project-title">Expense Tracker Application</h3>
+          <p class="project-description">
+            A comprehensive Java-based expense management system utilizing a layered DAO/service architecture for
+            multi-user transaction management and MySQL persistence.
+          </p>
+
+          <ul class="project-features">
+            <li><i class="fa-solid fa-check text-coral"></i> SQL-based expense search & sorting by description,
+              category, date, and amount via JDBC Prepared Statements.</li>
+            <li><i class="fa-solid fa-check text-coral"></i> Dynamic balance validation and categorized financial
+              tracking.</li>
+            <li><i class="fa-solid fa-check text-coral"></i> Automated CSV export engine for generating user-specific
+              financial records and analytical reports.</li>
+          </ul>
+
+          <div class="project-tech">
+            <span>Java</span>
+            <span>JDBC</span>
+            <span>MySQL</span>
+            <span>SQL</span>
+            <span>DAO Pattern</span>
+            <span>Service Layer</span>
+          </div>
+
+          <div class="project-footer">
+            <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+              class="btn btn-outline btn-sm">
+              <i class="fa-brands fa-github"></i> GitHub Repository
+            </a>
+            <button class="btn btn-ghost btn-sm view-arch-btn" data-project="expense">
+              <i class="fa-solid fa-layer-group"></i> Architecture Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Activity & Contributions Section -->
+  <section class="section github-section" id="github">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">OPEN SOURCE & REPOSITORIES</span>
+        <h2 class="section-title">GitHub <span class="highlight-text">Activity & Contributions</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="github-card">
+        <div class="github-card-header">
+          <div class="gh-user-info">
+            <img src="https://github.com/SamayMasram.png" alt="Samay Masram GitHub Avatar" class="gh-avatar"
+              onerror="this.src='https://ui-avatars.com/api/?name=Samay+Masram&background=EF8354&color=fff'">
+            <div>
+              <h3 class="gh-name">Samay Masram</h3>
+              <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" class="gh-username">
+                @SamayMasram <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="gh-meta-badges">
+            <span class="gh-badge"><i class="fa-solid fa-box-archive"></i> Public Repos</span>
+            <span class="gh-badge accent"><i class="fa-solid fa-fire"></i> Active Developer</span>
+          </div>
+        </div>
+
+        <!-- GitHub Summary Stats Grid -->
+        <div class="gh-stats-grid">
+          <div class="gh-stat-box">
+            <span class="stat-val" id="gh-commit-count">250+</span>
+            <span class="stat-lbl">Contributions (Past Year)</span>
+          </div>
+          <div class="gh-stat-box">
+            <span class="stat-val">Java</span>
+            <span class="stat-lbl">Top Language (78%)</span>
+          </div>
+          <div class="gh-stat-box">
+            <span class="stat-val">MySQL</span>
+            <span class="stat-lbl">Primary DB Stack</span>
+          </div>
+          <div class="gh-stat-box">
+            <span class="stat-val">100%</span>
+            <span class="stat-lbl">Open Source Commits</span>
+          </div>
+        </div>
+
+        <!-- GitHub Contributions Heatmap Widget Container (At Bottom of GitHub Section) -->
+        <div class="github-contributions-wrapper">
+          <div class="heatmap-header">
+            <h4><i class="fa-solid fa-calendar-days"></i> Contribution Calendar (@SamayMasram)</h4>
+            <span class="heatmap-legend">
+              <span>Less</span>
+              <span class="cell lvl-0"></span>
+              <span class="cell lvl-1"></span>
+              <span class="cell lvl-2"></span>
+              <span class="cell lvl-3"></span>
+              <span class="cell lvl-4"></span>
+              <span>More</span>
+            </span>
+          </div>
+
+          <!-- Dynamic Heatmap Calendar Container -->
+          <div class="heatmap-container" id="github-heatmap-container">
+            <img src="https://ghchart.rshah.org/2D3142/SamayMasram" alt="Samay Masram's GitHub Contribution Chart"
+              class="gh-chart-img" onerror="window.renderFallbackHeatmap()">
+          </div>
+
+          <div class="github-cta-bottom">
+            <p class="gh-text-note">
+              <i class="fa-brands fa-github"></i> Interested in inspecting my source code, Quiz Management System, or
+              Expense Tracker codebases?
+            </p>
+            <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary btn-sm">
+              <i class="fa-brands fa-github"></i> Visit @SamayMasram on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LeetCode & DSA Section -->
+  <section class="section leetcode-section" id="leetcode">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">PROBLEM SOLVING & ALGORITHMS</span>
+        <h2 class="section-title">LeetCode <span class="highlight-text">Achievements</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="leetcode-grid">
+        <div class="lc-profile-card">
+          <div class="lc-header">
+            <div class="lc-logo"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <h3>LeetCode Profile</h3>
+              <a href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer" class="lc-link">
+                leetcode.com/u/Kwgl4IASPl/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lc-main-stat">
+            <div class="lc-circle">
+              <span class="lc-number">120+</span>
+              <span class="lc-label">Problems Solved</span>
+            </div>
+          </div>
+
+          <p class="lc-bio">
+            Demonstrated mastery in fundamental computer science algorithms, memory efficiency, and optimal time
+            complexity.
+          </p>
+
+          <a href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline btn-block">
+            <i class="fa-solid fa-external-link"></i> View LeetCode Profile
+          </a>
+        </div>
+
+        <div class="lc-topics-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Core Topics Mastered</h3>
+          <div class="lc-topics-list">
+            <div class="topic-item">
+              <div class="topic-name"><span>Arrays & Strings</span><span>35+ Solved</span></div>
+              <div class="topic-bar">
+                <div class="topic-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="topic-item">
+              <div class="topic-name"><span>Linked Lists</span><span>20+ Solved</span></div>
+              <div class="topic-bar">
+                <div class="topic-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="topic-item">
+              <div class="topic-name"><span>Trees & Graphs</span><span>25+ Solved</span></div>
+              <div class="topic-bar">
+                <div class="topic-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="topic-item">
+              <div class="topic-name"><span>Hashing & HashTables</span><span>20+ Solved</span></div>
+              <div class="topic-bar">
+                <div class="topic-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="topic-item">
+              <div class="topic-name"><span>Recursion & Backtracking</span><span>20+ Solved</span></div>
+              <div class="topic-bar">
+                <div class="topic-fill" style="width: 70%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">GET IN TOUCH</span>
+        <h2 class="section-title">Contact <span class="highlight-text">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let's build something great together!</h3>
+          <p>
+            I am actively seeking Java Backend, Software Engineering, and Graduate opportunities for 2026-2027. Feel
+            free to reach out to discuss projects, collaborations, or job opportunities.
+          </p>
+
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <span class="info-label">Email Address</span>
+                <a href="mailto:samaymasram1404@gmail.com" class="info-value">samaymasram1404@gmail.com</a>
+                <button class="copy-btn" id="copy-email-btn" title="Copy email address">
+                  <i class="fa-regular fa-copy"></i> Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <span class="info-label">Phone</span>
+                <a href="tel:+919322654069" class="info-value">+91 9322654069</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <span class="info-label">Location</span>
+                <span class="info-value">Pune / Kolhapur, Maharashtra, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-connect-box">
+            <h4>Follow & Connect:</h4>
+            <div class="social-buttons">
+              <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" class="social-btn"><i
+                  class="fa-brands fa-github"></i> GitHub</a>
+              <a href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer"
+                class="social-btn"><i class="fa-solid fa-code"></i> LeetCode</a>
+              <a href="https://x.com/MasramSamay" target="_blank" rel="noopener noreferrer" class="social-btn"><i
+                  class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <form id="contact-form" class="contact-form">
+            <h3>Send Message</h3>
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" required
+                placeholder="Job Opportunity / Project Inquiry">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required
+                placeholder="Hello Samay, I would like to discuss..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#hero" class="footer-logo">&lt;SamayMasram /&gt;</a>
+        <p>© 2026 Samay Masram. All rights reserved.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+        <a href="https://x.com/MasramSamay" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+        <a href="mailto:samaymasram1404@gmail.com">Email</a>
+      </div>
+
+      <a href="#hero" class="back-to-top" title="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Modal: Project Architecture Details -->
+  <div class="modal-backdrop" id="arch-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Project Architecture</h3>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Content injected dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Resume Preview -->
+  <div class="modal-backdrop" id="resume-modal">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-file-pdf"></i> Resume Preview - Samay Masram</h3>
+        <button class="modal-close" id="resume-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="resume-preview-box">
+          <div class="resume-header-preview">
+            <h2>SAMAY MASRAM</h2>
+            <p>samaymasram1404@gmail.com | +919322654069 | Pune / Kolhapur, India</p>
+            <div class="resume-pills">
+              <span>GitHub: @SamayMasram</span>
+              <span>LeetCode: 120+ Solved</span>
+              <span>B.Tech CSE '27</span>
+            </div>
+          </div>
+          <hr class="resume-hr">
+          <div class="resume-section-preview">
+            <h4>SUMMARY</h4>
+            <p>Computer Science undergraduate graduating in 2027 with hands-on experience developing Java applications
+              using JDBC, JSP, Servlets and MySQL. Built projects involving MVC architecture, database integration and
+              layered application design.</p>
+          </div>
+          <div class="resume-section-preview">
+            <h4>INTERNSHIP EXPERIENCE</h4>
+            <p><strong>SUNBEAM INFOTECH</strong> (Pune, India) — Intern, Java Development (Dec 2025 – Jan 2026)</p>
+            <ul>
+              <li>Developed & maintained Quiz Management System using Java, JSP, Servlets, JDBC, and MySQL.</li>
+              <li>Implemented database-driven quiz and student workflows using JDBC and MySQL.</li>
+              <li>Debugged and resolved issues across existing Java codebase, improving stability.</li>
+            </ul>
+          </div>
+          <div class="resume-section-preview">
+            <h4>EDUCATION</h4>
+            <p><strong>D.K.T.E. Society’s Textile & Engineering Institute</strong> — B.Tech CSE (2027) | GPA: 7.43</p>
+            <p>HSC (2023): 67% | SSC (2021): 89%</p>
+          </div>
+          <div class="resume-section-preview">
+            <h4>PROJECTS</h4>
+            <p><strong>Quiz Management System</strong> (Java, JDBC, JSP, Servlets, MySQL, MVC, Swing)</p>
+            <p><strong>Expense Tracker</strong> (Java, JDBC, MySQL, SQL, DAO/Service Pattern)</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="mailto:samaymasram1404@gmail.com?subject=Resume%20Request%20-%20Samay%20Masram"
+          class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Request Resume PDF via Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="/app.js"></script>
+</body>
+
+</html>
