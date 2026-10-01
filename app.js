@@ -1,135 +1,215 @@
 /**
- * SAMAY MASRAM - PORTFOLIO INTERACTIVE APPLICATION SCRIPT
- * GitHub: https://github.com/SamayMasram
- * LeetCode: https://leetcode.com/u/Kwgl4IASPl/
- * X: https://x.com/MasramSamay
+ * SAMAY MASRAM - REALISTIC HANDWRITTEN PAPER PORTFOLIO & PEN INTERACTIVITY
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggle
-  initMobileMenu();
-
-  // 2. Typing Effect in Hero Section
-  initTypingEffect();
-
-  // 3. Skills Filter Tabs
+  initPenCursorAndInkTrail();
+  initInkColorPicker();
+  initRuledLineToggle();
+  initNotebookTabs();
   initSkillsFilter();
-
-  // 4. Project Architecture Modal
-  initProjectModals();
-
-  // 5. Resume Modal Preview
-  initResumeModal();
-
-  // 6. Copy Email Feature
+  initExpandableProjects();
+  initAnimatedCounters();
+  initAnimatedSkillBars();
   initCopyEmail();
-
-  // 7. Contact Form Handler
-  initContactForm();
-
-  // 8. GitHub Fallback Heatmap Generator
+  initResumeModal();
   initGitHubHeatmap();
-
-  // 9. Smooth Active Nav Link on Scroll
-  initScrollSpy();
+  initContactForm();
 });
 
 /* ==========================================================================
-   1. Mobile Navigation Menu
+   1. Real-Time Custom Pen Cursor & Dynamic Ink Trail
    ========================================================================== */
-function initMobileMenu() {
-  const hamburger = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+function initPenCursorAndInkTrail() {
+  const penCursor = document.getElementById('pen-cursor');
+  const canvas = document.getElementById('ink-canvas');
+  if (!canvas) return;
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('active');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const inkParticles = [];
+  let mouse = { x: -100, y: -100, lastX: -100, lastY: -100 };
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+
+    if (penCursor) {
+      penCursor.style.left = `${mouse.x}px`;
+      penCursor.style.top = `${mouse.y}px`;
+    }
+
+    const dx = mouse.x - mouse.lastX;
+    const dy = mouse.y - mouse.lastY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist > 3) {
+      createInkPoint(mouse.x, mouse.y, dist);
+      mouse.lastX = mouse.x;
+      mouse.lastY = mouse.y;
+    }
+  });
+
+  function getInkRgb() {
+    const inkHex = getComputedStyle(document.body).getPropertyValue('--ink-main').trim();
+    let r = 29, g = 78, b = 216;
+    if (inkHex.startsWith('#')) {
+      const hex = inkHex.replace('#', '');
+      if (hex.length === 6) {
+        r = parseInt(hex.substring(0, 2), 16);
+        g = parseInt(hex.substring(2, 4), 16);
+        b = parseInt(hex.substring(4, 6), 16);
+      }
+    }
+    return { r, g, b };
+  }
+
+  function createInkPoint(x, y, speed) {
+    const { r, g, b } = getInkRgb();
+    inkParticles.push({
+      x: x + (Math.random() - 0.5) * 2,
+      y: y + (Math.random() - 0.5) * 2,
+      radius: Math.min(Math.max(1, 3 - speed * 0.05), 2.5),
+      alpha: 0.35,
+      r, g, b
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-      });
+    if (inkParticles.length > 60) {
+      inkParticles.shift();
+    }
+  }
+
+  function renderInk() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < inkParticles.length; i++) {
+      const p = inkParticles[i];
+      p.alpha -= 0.008;
+
+      if (p.alpha > 0) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, ${p.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    requestAnimationFrame(renderInk);
+  }
+
+  renderInk();
+
+  const interactiveEls = document.querySelectorAll('a, button, .expandable-project-card, .tab-btn, .handwritten-skill-card, input, textarea');
+  interactiveEls.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (penCursor) penCursor.classList.add('writing');
+    });
+    el.addEventListener('mouseleave', () => {
+      if (penCursor) penCursor.classList.remove('writing');
+    });
+  });
+}
+
+/* ==========================================================================
+   2. Ink Color Picker Switcher
+   ========================================================================== */
+function initInkColorPicker() {
+  const inkBtns = document.querySelectorAll('.ink-btn');
+
+  inkBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const inkTheme = btn.dataset.ink;
+      document.body.className = `ink-${inkTheme}`;
+
+      inkBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      showInkToast(`✒️ Ink switched to ${inkTheme.toUpperCase()} Ballpoint!`);
+    });
+  });
+}
+
+/* ==========================================================================
+   3. Ruled Line Toggle
+   ========================================================================== */
+function initRuledLineToggle() {
+  const toggleBtn = document.getElementById('toggle-ruled-lines');
+  const paperSheet = document.getElementById('main-paper-sheet');
+
+  if (toggleBtn && paperSheet) {
+    toggleBtn.addEventListener('click', () => {
+      paperSheet.classList.toggle('no-ruled-lines');
+      const isPlain = paperSheet.classList.contains('no-ruled-lines');
+      toggleBtn.classList.toggle('active', isPlain);
+      showInkToast(isPlain ? '📄 Plain Paper Mode' : '📝 Ruled Notebook Lines Active');
     });
   }
 }
 
 /* ==========================================================================
-   2. Dynamic Typing Effect
+   4. Notebook Side Tabs Navigation & ScrollSpy
    ========================================================================== */
-function initTypingEffect() {
-  const typingElement = document.getElementById('typing-text');
-  if (!typingElement) return;
+function initNotebookTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.paper-section, .paper-header');
 
-  const words = [
-    'Java Backend Systems',
-    'MVC Web Applications',
-    'Layered DAO Architecture',
-    'JDBC & MySQL Databases',
-    'Clean & Scalable Code'
-  ];
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const targetEl = document.querySelector(targetId);
 
-  let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typeSpeed = 100;
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
-  function type() {
-    const currentWord = words[wordIndex];
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        tabBtns.forEach(btn => {
+          if (btn.dataset.target === id) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
 
-    if (isDeleting) {
-      typingElement.textContent = currentWord.substring(0, charIndex - 1);
-      charIndex--;
-      typeSpeed = 50;
-    } else {
-      typingElement.textContent = currentWord.substring(0, charIndex + 1);
-      charIndex++;
-      typeSpeed = 100;
-    }
-
-    if (!isDeleting && charIndex === currentWord.length) {
-      isDeleting = true;
-      typeSpeed = 1800; // Pause at end of word
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-      typeSpeed = 400; // Pause before typing next word
-    }
-
-    setTimeout(type, typeSpeed);
-  }
-
-  type();
+  sections.forEach(sec => observer.observe(sec));
 }
 
 /* ==========================================================================
-   3. Skills Filter Tabs
+   5. Technical Skills Category Filter
    ========================================================================== */
 function initSkillsFilter() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
+  const filterBtns = document.querySelectorAll('.skill-filter-btn');
+  const skillCards = document.querySelectorAll('.handwritten-skill-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remove active class from all buttons
+      const filter = btn.dataset.filter;
+
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filterValue = btn.getAttribute('data-filter');
-
       skillCards.forEach(card => {
-        const categories = card.getAttribute('data-category');
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.style.opacity = '1';
-          card.style.transform = 'scale(1)';
+        const cat = card.dataset.category;
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'block';
+          card.style.animation = 'unfoldSheet 0.4s ease-out';
         } else {
           card.style.display = 'none';
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.9)';
         }
       });
     });
@@ -137,295 +217,262 @@ function initSkillsFilter() {
 }
 
 /* ==========================================================================
-   4. Project Architecture Modal
+   6. Expandable Interactive Project Notebook Cards
    ========================================================================== */
-function initProjectModals() {
-  const archModal = document.getElementById('arch-modal');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-  const modalTitle = document.getElementById('modal-title');
-  const modalBody = document.getElementById('modal-body');
-  const viewBtns = document.querySelectorAll('.view-arch-btn');
+function initExpandableProjects() {
+  const projectCards = document.querySelectorAll('.expandable-project-card');
 
-  const projectDetails = {
-    quiz: {
-      title: 'Quiz Management System — Architecture Breakdown',
-      content: `
-        <p><strong>System Architecture:</strong> Model-View-Controller (MVC) Pattern</p>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">
-          Designed with modular encapsulation separating data access objects, business rules, and presentation layers.
-        </p>
+  projectCards.forEach(card => {
+    const expandBtn = card.querySelector('.expand-btn');
+    const closeBtn = card.querySelector('.close-project-btn');
 
-        <div class="arch-diagram-box">
-┌─────────────────────────────────────────────────────────────┐
-│                       VIEW LAYER                            │
-│           (Java Swing GUI & JSP Web Pages)                  │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ HTTP Requests / Events
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    CONTROLLER LAYER                         │
-│           (Servlets / Swing Event Handlers)                 │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ Business Logic & Validation
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      SERVICE / DAO                          │
-│     (QuizDAO, StudentDAO, JDBC Prepared Statements)         │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ SQL Queries
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DATABASE LAYER                         │
-│                   (MySQL Persistence)                       │
-└─────────────────────────────────────────────────────────────┘
-        </div>
-
-        <h4 style="color: var(--accent); margin: 15px 0 8px 0;">Key Modules & Validation:</h4>
-        <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 20px; margin-bottom: 15px;">
-          <li><strong>Java Collections Validation:</strong> Enforces one-attempt-per-student rule using synchronized HashMap & Set validation.</li>
-          <li><strong>JDBC Prepared Statements:</strong> Prevents SQL Injection and accelerates query execution for quiz retrieval.</li>
-          <li><strong>Swing & Web Interface:</strong> Provides instant exception handling, file/input validation, and scoring breakdown.</li>
-        </ul>
-
-        <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          <i class="fa-brands fa-github"></i> Inspect Code on GitHub
-        </a>
-      `
-    },
-    expense: {
-      title: 'Expense Tracker — Architecture Breakdown',
-      content: `
-        <p><strong>System Architecture:</strong> Layered DAO & Service Pattern</p>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">
-          Built for scalable personal financial management with MySQL persistence, parameter binding, and custom CSV reporting.
-        </p>
-
-        <div class="arch-diagram-box">
-┌─────────────────────────────────────────────────────────────┐
-│                   PRESENTATION / CLI / UI                   │
-│           (Category View, Transactions, Filter UI)           │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ User Commands
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                     SERVICE LAYER                           │
-│        (ExpenseService, BalanceValidationService)          │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ DAO Interface Call
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DAO IMPLEMENTATION                     │
-│         (ExpenseDAOImpl, PreparedStatements, CSV Engine)    │
-└──────────────────────────────┬──────────────────────────────┘
-                               │ JDBC Drivers
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   MYSQL FINANCIAL DATABASE                  │
-└─────────────────────────────────────────────────────────────┘
-        </div>
-
-        <h4 style="color: var(--accent); margin: 15px 0 8px 0;">Technical Highlights:</h4>
-        <ul style="color: var(--text-muted); font-size: 0.9rem; padding-left: 20px; margin-bottom: 15px;">
-          <li><strong>Prepared Statement Queries:</strong> Dynamic filtering by date range, category, amount threshold, and text search.</li>
-          <li><strong>CSV Export Engine:</strong> Streams transactions directly into downloadable CSV format for offline financial accounting.</li>
-          <li><strong>Balance & Category Validation:</strong> Prevents negative balance anomalies and invalid transaction categories.</li>
-        </ul>
-
-        <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          <i class="fa-brands fa-github"></i> Inspect Code on GitHub
-        </a>
-      `
-    }
-  };
-
-  viewBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const projKey = btn.getAttribute('data-project');
-      const details = projectDetails[projKey];
-      if (details && archModal) {
-        modalTitle.textContent = details.title;
-        modalBody.innerHTML = details.content;
-        archModal.classList.add('active');
-      }
-    });
-  });
-
-  if (modalCloseBtn && archModal) {
-    modalCloseBtn.addEventListener('click', () => {
-      archModal.classList.remove('active');
-    });
-
-    archModal.addEventListener('click', (e) => {
-      if (e.target === archModal) {
-        archModal.classList.remove('active');
-      }
-    });
-  }
-}
-
-/* ==========================================================================
-   5. Resume Modal Preview
-   ========================================================================== */
-function initResumeModal() {
-  const resumeModal = document.getElementById('resume-modal');
-  const btnResumeModal = document.getElementById('btn-resume-modal');
-  const resumeCloseBtn = document.getElementById('resume-close-btn');
-
-  if (btnResumeModal && resumeModal) {
-    btnResumeModal.addEventListener('click', () => {
-      resumeModal.classList.add('active');
-    });
-
-    if (resumeCloseBtn) {
-      resumeCloseBtn.addEventListener('click', () => {
-        resumeModal.classList.remove('active');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+        if (card.classList.contains('expanded')) {
+          expandBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> Fold Details';
+        } else {
+          expandBtn.innerHTML = '<i class="fa-solid fa-eye"></i> Unfold Details & Architecture';
+        }
       });
     }
 
-    resumeModal.addEventListener('click', (e) => {
-      if (e.target === resumeModal) {
-        resumeModal.classList.remove('active');
-      }
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        card.classList.remove('expanded');
+        if (expandBtn) expandBtn.innerHTML = '<i class="fa-solid fa-eye"></i> Unfold Details & Architecture';
+      });
+    }
+  });
+}
+
+/* ==========================================================================
+   7. GitHub Contribution Heatmap Generator
+   ========================================================================== */
+function initGitHubHeatmap() {
+  const container = document.getElementById('github-heatmap-grid');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  // Generate 52 weeks x 7 days
+  const totalDays = 52 * 7;
+  const levels = ['l0', 'l0', 'l1', 'l1', 'l2', 'l3', 'l4'];
+
+  for (let i = 0; i < totalDays; i++) {
+    const day = document.createElement('div');
+    day.className = 'hm-day';
+
+    // Simulate realistic commit clusters
+    let randIndex = Math.floor(Math.random() * levels.length);
+    if (i % 7 === 0 || i % 7 === 6) {
+      // Weekend lower frequency
+      randIndex = Math.floor(Math.random() * 3);
+    }
+    const levelClass = levels[randIndex];
+    day.classList.add(levelClass);
+
+    const contribCount = levelClass === 'l0' ? 0 : levelClass === 'l1' ? 2 : levelClass === 'l2' ? 5 : levelClass === 'l3' ? 8 : 12;
+    day.title = `${contribCount} contributions on Day ${i + 1}`;
+
+    container.appendChild(day);
   }
 }
 
 /* ==========================================================================
-   6. Copy Email Feature
+   8. Animated Counters
+   ========================================================================== */
+function initAnimatedCounters() {
+  const counters = document.querySelectorAll('.handwritten-stat-num[data-target]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        const target = parseInt(entry.target.dataset.target);
+        const duration = 1800;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const current = Math.floor(progress * target);
+          entry.target.textContent = current + '+';
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            entry.target.textContent = target + '+';
+          }
+        }
+        requestAnimationFrame(updateCounter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+/* ==========================================================================
+   9. Animated Skill & Topic Progress Fill Bars
+   ========================================================================== */
+function initAnimatedSkillBars() {
+  const fills = document.querySelectorAll('.ink-fill, .topic-bar .fill');
+
+  fills.forEach(fill => {
+    fill.dataset.targetWidth = fill.style.width;
+    fill.style.width = '0%';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        setTimeout(() => {
+          fill.style.width = fill.dataset.targetWidth;
+        }, 150);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fills.forEach(fill => observer.observe(fill));
+}
+
+/* ==========================================================================
+   10. Copy Email Button
    ========================================================================== */
 function initCopyEmail() {
   const copyBtn = document.getElementById('copy-email-btn');
-  const emailText = 'samaymasram1404@gmail.com';
 
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(emailText).then(() => {
-        const originalHTML = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        copyBtn.style.color = '#27c93f';
-        copyBtn.style.borderColor = '#27c93f';
-
-        setTimeout(() => {
-          copyBtn.innerHTML = originalHTML;
-          copyBtn.style.color = 'var(--accent)';
-          copyBtn.style.borderColor = 'var(--border-subtle)';
-        }, 2000);
-      }).catch(err => {
-        console.error('Copy failed: ', err);
+      navigator.clipboard.writeText('samaymasram1404@gmail.com').then(() => {
+        showInkToast('✓ Email copied to clipboard!');
       });
     });
   }
 }
 
 /* ==========================================================================
-   7. Contact Form Handler
+   11. Resume PDF Modal
+   ========================================================================== */
+function initResumeModal() {
+  const openBtn = document.getElementById('btn-resume-modal');
+  const modal = document.getElementById('resume-modal');
+  const closeBtn = document.getElementById('modal-close-btn');
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  }
+}
+
+/* ==========================================================================
+   12. Interactive "Leave Me a Handwritten Message" Note Modal
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
-  const statusDiv = document.getElementById('form-status');
+  const noteModal = document.getElementById('note-modal');
+  const noteModalClose = document.getElementById('note-modal-close');
+  const sendMailBtn = document.getElementById('send-mail-client-btn');
+  const copyNoteBtn = document.getElementById('copy-note-text-btn');
 
-  if (form) {
+  if (form && noteModal) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('contact-name').value;
-      const email = document.getElementById('contact-email').value;
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const message = document.getElementById('form-message').value.trim();
 
-      statusDiv.className = 'form-status success';
-      statusDiv.innerHTML = `<i class="fa-solid fa-circle-check"></i> Thank you, ${name}! Your message has been prepared. Redirecting to your mail application...`;
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-      // Open mail client
-      setTimeout(() => {
-        const subject = encodeURIComponent(document.getElementById('contact-subject').value);
-        const body = encodeURIComponent(`From: ${name} (${email})\n\n${document.getElementById('contact-message').value}`);
-        window.location.href = `mailto:samaymasram1404@gmail.com?subject=${subject}&body=${body}`;
-        form.reset();
-      }, 1500);
+      // Populate Note Modal
+      document.getElementById('note-letter-author').textContent = name;
+      document.getElementById('note-letter-email').textContent = `(${email})`;
+      document.getElementById('note-letter-body').textContent = message;
+      document.getElementById('note-letter-date').textContent = `Date: ${dateStr}`;
+
+      // Set Mailto Link
+      if (sendMailBtn) {
+        const mailtoSubject = encodeURIComponent(`Handwritten Note from ${name}`);
+        const mailtoBody = encodeURIComponent(`Hi Samay,\n\n${message}\n\nBest regards,\n${name}\n${email}`);
+        sendMailBtn.href = `mailto:samaymasram1404@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      }
+
+      // Copy Note Button Handler
+      if (copyNoteBtn) {
+        copyNoteBtn.onclick = () => {
+          const fullNote = `Dear Samay,\n\n${message}\n\nSigned by: ${name} (${email}) - ${dateStr}`;
+          navigator.clipboard.writeText(fullNote).then(() => {
+            showInkToast('✓ Handwritten note copied to clipboard!');
+          });
+        };
+      }
+
+      // Open Modal with pop-in
+      noteModal.classList.add('active');
+      showInkToast('✍️ Handwritten note signed & sealed!');
+      form.reset();
     });
-  }
-}
 
-/* ==========================================================================
-   8. GitHub Heatmap Fallback Generator
-   ========================================================================== */
-window.renderFallbackHeatmap = function() {
-  const container = document.getElementById('github-heatmap-container');
-  if (!container) return;
-
-  // Generate an SVG heatmap matching the user's custom palette (#2D3142, #4F5D75, #EF8354)
-  const weeks = 52;
-  const daysPerWeek = 7;
-  const cellSize = 11;
-  const cellGap = 3;
-
-  let svgContent = `<svg width="100%" viewBox="0 0 760 110" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">`;
-
-  // Color levels matching Coolors Palette
-  const colors = [
-    '#2D3142', // Level 0: dark
-    '#4F5D75', // Level 1: slate blue
-    '#a65d3b', // Level 2: medium coral
-    '#d97143', // Level 3: bright coral
-    '#EF8354'  // Level 4: max accent coral
-  ];
-
-  // Seeded distribution to accurately portray continuous commits
-  for (let w = 0; w < weeks; w++) {
-    const x = w * (cellSize + cellGap);
-    for (let d = 0; d < daysPerWeek; d++) {
-      const y = d * (cellSize + cellGap);
-      
-      // Calculate realistic intensity
-      let level = 0;
-      const rand = Math.sin(w * 0.3 + d * 0.7);
-      if (rand > 0.5) level = 4;
-      else if (rand > 0.2) level = 3;
-      else if (rand > -0.1) level = 2;
-      else if (rand > -0.5) level = 1;
-
-      svgContent += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" rx="2" fill="${colors[level]}" />`;
+    if (noteModalClose) {
+      noteModalClose.addEventListener('click', () => {
+        noteModal.classList.remove('active');
+      });
     }
-  }
 
-  svgContent += `</svg>`;
-  container.innerHTML = svgContent;
-};
-
-function initGitHubHeatmap() {
-  const img = document.querySelector('.gh-chart-img');
-  if (img) {
-    img.addEventListener('error', () => {
-      window.renderFallbackHeatmap();
+    noteModal.addEventListener('click', (e) => {
+      if (e.target === noteModal) noteModal.classList.remove('active');
     });
   }
 }
 
-/* ==========================================================================
-   9. ScrollSpy for Active Navigation Links
-   ========================================================================== */
-function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+/* Toast Helper */
+function showInkToast(msg) {
+  let toast = document.getElementById('ink-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'ink-toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--paper-bg);
+      border: 2px solid var(--ink-main);
+      color: var(--ink-main);
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 99999;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    `;
+    document.body.appendChild(toast);
+  }
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollY = window.pageYOffset;
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateY(0)';
 
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        current = sectionId;
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(15px)';
+  }, 2500);
 }
