@@ -1,126 +1,144 @@
-<div align="center">
+ <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3500&pause=1000&color=2F81F7&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Samay+Masram+%F0%9F%91%8B;Aspiring+Software+Engineer;Always+Learning%2C+Always+Building" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=650&lines=Hi%2C+I'm+Samay+Masram+%F0%9F%91%8B;Java+Backend+Developer;Building+Practical+Software+%26+AI+Projects" alt="Typing SVG" />
+
+### Aspiring Software Engineer | Java • Backend Development • AI
 
 <p>
-  <a href="https://samayportfolio1.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-Visit-2F81F7?style=for-the-badge&logo=netlify&logoColor=white" alt="Portfolio"/></a>
+  <a href="https://samayportfolio1.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-Visit-58A6FF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
   <a href="https://www.linkedin.com/in/samay-masram-827056320/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <a href="https://leetcode.com/u/Kwgl4IASPl/"><img src="https://img.shields.io/badge/LeetCode-Profile-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
+  <a href="https://leetcode.com/u/Kwgl4IASPl/"><img src="https://img.shields.io/badge/LeetCode-Practice-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
+  <a href="mailto:samaymasram1404@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 </p>
 
-<img src="https://komarev.com/ghpvc/?username=SamayMasram&label=Profile%20Views&color=2F81F7&style=flat-square" alt="Profile views"/>
+<img src="https://komarev.com/ghpvc/?username=SamayMasram&label=Profile%20Views&color=58A6FF&style=flat-square" alt="Profile views"/>
 
 </div>
 
 ---
 
-## 👨‍💻 About Me
+## 👋 About Me
 
-- 🎓 Aspiring Software Engineer based in **Amravati, India**
-- 🌱 Dedicated to continuous learning, currently strengthening my **DSA** and **full-stack** skills
-- 🤝 **Open to contributing** to open-source projects
-- 🧩 Solving problems on [LeetCode](https://leetcode.com/u/Kwgl4IASPl/)
-- 🤖 Interested in building practical tools with **AI/ML** and the **web**
-- 📫 Reach me through [LinkedIn](https://www.linkedin.com/in/samay-masram-827056320/) or my [portfolio](https://samayportfolio1.netlify.app/)
+I'm a Computer Science student interested in building reliable backend systems, database-driven applications, and practical AI-powered tools.
+
+* 💻 Focused on **Java, backend development, and software engineering fundamentals**
+* 🗄️ Learning to design and build applications using **SQL, MySQL, and database technologies**
+* 🧠 Practicing **Data Structures and Algorithms** to strengthen problem-solving skills
+* 🤖 Exploring **LLMs, LangChain, and AI-powered applications**
+* 🌱 Continuously learning through hands-on projects and development
+* 🤝 Interested in collaborating on meaningful projects and open-source contributions
+
+📍 Amravati, Maharashtra, India
 
 ---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
 ### Languages
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### Frontend
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+<p>
+  <img src="https://skillicons.dev/icons?i=java,python,cpp,js,ts,html,css" alt="Java, Python, C++, JavaScript, TypeScript, HTML and CSS"/>
+</p>
 
 ### Backend & Databases
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-### AI / Data
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+<p>
+  <img src="https://skillicons.dev/icons?i=spring,nodejs,express,mysql,mongodb,firebase" alt="Spring Boot, Node.js, Express, MySQL, MongoDB and Firebase"/>
+</p>
 
-### Tools & Platforms
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+### Frontend
+
+<p>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,vite" alt="React, Next.js, Tailwind CSS and Vite"/>
+</p>
+
+### AI, Data & Developer Tools
+
+<p>
+  <img src="https://skillicons.dev/icons?i=python,jupyter,git,github,vscode,postman,vercel,netlify" alt="Python, Jupyter, Git, GitHub, VS Code, Postman, Vercel and Netlify"/>
+</p>
+
+**Also exploring:** LangChain, LLMs, Retrieval-Augmented Generation (RAG), and prompt engineering.
 
 ---
 
 ## 🚀 Featured Projects
 
-| Project | Description | Tech |
-|---|---|---|
-| [**CredFolio**](https://github.com/SamayMasram/CredFolio) | Certificate & credential portfolio platform to organize and showcase certificates, badges, and professional credentials in one shareable place. | ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) |
-| [**Ask-Your-PDF**](https://github.com/SamayMasram/Ask-Your-PDF) | Upload a PDF, ask questions, and get answers from the document as well as from the web. | ![Python](https://img.shields.io/badge/-Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white) |
-| [**VidyaMargdarshak**](https://github.com/AshishTone/VidyaMargdarshak) | Personalized career and education advisor (team project). | ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
-| [**Quiz Management System**](https://github.com/Rohitsenpai01/Quiz-Manangement-System) | Internship project for creating and managing quizzes. | ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
+<table>
+  <tr>
+    <td width="50%">
+      <h3><a href="https://github.com/SamayMasram/CredFolio">CredFolio</a></h3>
+      <p>A credential portfolio platform for organizing and showcasing certificates, badges, and professional achievements in one shareable place.</p>
+      <p><strong>Focus:</strong> Web Development · Credential Management</p>
+    </td>
+    <td width="50%">
+      <h3><a href="https://github.com/SamayMasram/Ask-Your-PDF">Ask-Your-PDF</a></h3>
+      <p>An AI-powered document assistant that lets users ask questions about uploaded PDFs and retrieve relevant information.</p>
+      <p><strong>Focus:</strong> Python · LLMs · Document Q&A</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3><a href="https://github.com/AshishTone/VidyaMargdarshak">VidyaMargdarshak</a></h3>
+      <p>A team project focused on helping users explore educational pathways and career options through personalized guidance.</p>
+      <p><strong>Focus:</strong> JavaScript · Web Application</p>
+    </td>
+    <td width="50%">
+      <h3><a href="https://github.com/Rohitsenpai01/Quiz-Manangement-System">Quiz Management System</a></h3>
+      <p>A quiz management application developed as part of practical software development experience.</p>
+      <p><strong>Focus:</strong> Application Development · Quiz Management</p>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 📊 GitHub Stats
+## 📈 GitHub Activity
 
 <div align="center">
 
-<img height="180" src="https://github-readme-stats.vercel.app/api?username=SamayMasram&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub stats"/>
-<img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SamayMasram&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=SamayMasram&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github" alt="GitHub statistics"/>
 
-<br/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SamayMasram&layout=compact&theme=github_dark&hide_border=true" alt="Most used languages"/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=SamayMasram&theme=tokyonight&hide_border=true" alt="GitHub streak"/>
+<img width="95%" src="https://github-readme-streak-stats.herokuapp.com/?user=SamayMasram&theme=github-dark-blue&hide_border=true" alt="GitHub contribution streak"/>
 
 </div>
 
 ---
 
-## 🏆 Achievements
+## 🏆 GitHub Achievements
 
 <p>
-  <img src="https://img.shields.io/badge/GitHub-Pull_Shark_x2-2EA043?style=for-the-badge&logo=github" alt="Pull Shark"/>
-  <img src="https://img.shields.io/badge/GitHub-YOLO-FFD33D?style=for-the-badge&logo=github&logoColor=black" alt="YOLO"/>
-  <img src="https://img.shields.io/badge/GitHub-Quickdraw-8957E5?style=for-the-badge&logo=github" alt="Quickdraw"/>
+  <img src="https://img.shields.io/badge/Pull%20Shark-x2-2EA043?style=flat-square&logo=github&logoColor=white" alt="Pull Shark x2"/>
+  <img src="https://img.shields.io/badge/YOLO-Achievement-FFD33D?style=flat-square&logo=github&logoColor=black" alt="YOLO"/>
+  <img src="https://img.shields.io/badge/Quickdraw-Achievement-8957E5?style=flat-square&logo=github&logoColor=white" alt="Quickdraw"/>
 </p>
 
 ---
 
-## 🎯 Currently
+## 🎯 What I'm Working Toward
 
-- 🔭 Building projects that blend **web development** with **AI**
-- 📚 Sharpening **data structures & algorithms**
-- 🌍 Looking for **open-source projects** and **internship opportunities**
+* Building stronger Java and backend development skills
+* Improving problem-solving through regular DSA practice
+* Developing useful applications that combine software engineering and AI
+* Learning to build maintainable, database-driven applications
+* Contributing to collaborative projects and exploring internship opportunities
 
 ---
 
-## 📬 Let's Connect
+## 🤝 Let's Connect
+
+I'm always interested in learning from other developers, discussing projects, and collaborating on useful ideas.
 
 <div align="center">
 
-<a href="https://samayportfolio1.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-2F81F7?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
-<a href="https://www.linkedin.com/in/samay-masram-827056320/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://leetcode.com/u/Kwgl4IASPl/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
+<a href="https://samayportfolio1.netlify.app/">Portfolio</a> • <a href="https://www.linkedin.com/in/samay-masram-827056320/">LinkedIn</a> • <a href="https://leetcode.com/u/Kwgl4IASPl/">LeetCode</a> • <a href="https://github.com/SamayMasram">GitHub</a> • <a href="mailto:samaymasram1404@gmail.com">Email</a>
 
 <br/><br/>
 
-*⭐ Don't take rest after your first victory because if you fail in second, more lips are waiting to say that your first victory was just luck! - Dr. APJ Abdul Kalam*
+*“Great software is built through curiosity, consistency, and continuous improvement.”*
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" alt="footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:1F6FEB&height=100&section=footer" alt="Footer banner"/>
 
 </div>
