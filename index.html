@@ -1,232 +1,1740 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
-  <meta name="description" content="Samay Masram — aspiring software engineer building thoughtful web applications and backend systems.">
+  <meta name="description"
+    content="Samay Masram — aspiring software engineer building thoughtful web applications and backend systems.">
   <title>Samay Masram — Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
-    :root{--bg:#080808;--panel:#101010;--text:#f5f5f5;--muted:#999;--line:#292929;--white:#fff;--max:1160px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.6;overflow-x:hidden;cursor:none}
-    a,button{color:inherit} a{text-decoration:none}
-    ::selection{background:#fff;color:#000}
-    .cursor,.cursor-ring{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
-    .cursor{width:7px;height:7px;background:#fff}
-    .cursor-ring{width:32px;height:32px;border:1px solid #fff;transition:width .2s,height .2s,opacity .2s}
-    body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:52px;height:52px}
-    .grain{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
-    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
-    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(8,8,8,.86);backdrop-filter:blur(16px);z-index:100}
-    .brand{font-weight:800;letter-spacing:-.06em;font-size:1.1rem}.brand span{color:#777}
-    .navlinks{display:flex;gap:28px;align-items:center;font:11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:#b5b5b5}
-    .navlinks a{transition:color .2s}.navlinks a:hover{color:#fff}
-    .menu-btn{display:none;background:none;border:1px solid var(--line);color:#fff;padding:8px 12px;font:inherit}
-    .eyebrow{font:11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:#aaa;display:flex;align-items:center;gap:10px}
-    .eyebrow:before{content:"";width:22px;height:1px;background:#aaa}
-    .hero{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:50px;padding:100px 0 92px;position:relative}
-    .hero h1{font-size:clamp(3.8rem,9vw,8.5rem);letter-spacing:-.095em;line-height:.91;margin:26px 0 30px;font-weight:800}
-    .hero h1 .outline{-webkit-text-stroke:1px #777;color:transparent}
-    .hero-copy{max-width:570px;color:#aaa;font-size:1rem}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-    .btn{border:1px solid #eee;background:#f5f5f5;color:#080808;padding:13px 18px;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:20px;transition:transform .2s,background .2s,color .2s}
-    .btn:hover{transform:translateY(-3px);background:#080808;color:#fff}
-    .btn.secondary{background:transparent;color:#eee;border-color:#444}.btn.secondary:hover{border-color:#fff;background:#fff;color:#000}
-    .hero-side{border:1px solid var(--line);padding:28px;position:relative;background:linear-gradient(145deg,#121212,#080808);min-height:360px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-    .hero-side:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #333;border-radius:50%;right:-100px;top:45px;box-shadow:0 0 0 35px #ffffff03,0 0 0 70px #ffffff02}
-    .availability{display:flex;align-items:center;gap:9px;color:#c8c8c8;font:11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
-    .dot{width:7px;height:7px;background:#eee;border-radius:50%;box-shadow:0 0 12px #fff}
-    .monogram{font-size:clamp(5rem,10vw,8rem);font-weight:800;letter-spacing:-.12em;line-height:1;z-index:1}
-    .hero-side-bottom{display:flex;justify-content:space-between;align-items:end;z-index:1;color:#888;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
-    .scroll-note{position:absolute;bottom:26px;right:0;font:10px 'DM Mono',monospace;color:#777;text-transform:uppercase;letter-spacing:.15em}
-    section{padding:105px 0;border-top:1px solid var(--line)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:45px}
-    .section-index{font:11px 'DM Mono',monospace;color:#777}
-    h2{font-size:clamp(2.5rem,6vw,5rem);line-height:1;letter-spacing:-.075em;margin:15px 0 0}
-    .section-intro{color:#888;max-width:350px;font-size:.9rem}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
-    .about-big{font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.045em;line-height:1.35;margin:0}
-    .about-big span{color:#777}
-    .about-details{color:#999;font-size:.94rem}
-    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
-    .stat{border:1px solid var(--line);padding:18px}.stat strong{display:block;font-size:1.2rem;color:#fff}.stat small{color:#777;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .project{background:var(--panel);border:1px solid var(--line);padding:26px;min-height:320px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
-    .project:hover{border-color:#777;transform:translateY(-4px)}
-    .project-top{display:flex;justify-content:space-between;align-items:center;color:#777;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}
-    .project-art{height:100px;margin:25px 0;display:flex;align-items:center;justify-content:center;border:1px solid #242424;background:radial-gradient(ellipse at center,#1e1e1e 0%,#101010 70%);overflow:hidden}
-    .art-word{font-size:clamp(1.7rem,4vw,3rem);font-weight:800;letter-spacing:-.08em}
-    .art-word span{color:#666}
-    .project h3{font-size:1.55rem;letter-spacing:-.05em;margin:0 0 8px}
-    .project p{color:#929292;font-size:.87rem;margin:0 0 20px;max-width:500px}
-    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:15px}
-    .tag{border:1px solid #343434;padding:5px 8px;color:#aaa;font:10px 'DM Mono',monospace}
-    .project-link{font-size:20px;transition:transform .2s}.project-link:hover{transform:translate(3px,-3px)}
-    .project-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .project-action{display:inline-flex;align-items:center;gap:8px;border:1px solid #444;padding:9px 12px;color:#ddd;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,border-color .2s,color .2s}
-    .project-action:hover{background:#fff;color:#000;border-color:#fff}
-    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .skill{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:110px;transition:background .2s}
-    .skill:hover{background:#151515}.skill small{font:10px 'DM Mono',monospace;color:#777}.skill strong{display:block;margin-top:14px;font-size:1rem}
-    .github-panel{border:1px solid var(--line);padding:26px;background:#0d0d0d}
-    .github-top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}
-    .github-top h3{margin:0;font-size:1.2rem;letter-spacing:-.04em}.github-top p{margin:5px 0 0;color:#777;font-size:.8rem}
-    .github-cta{font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid #777;padding-bottom:5px;white-space:nowrap}
-    .contrib-frame{width:100%;overflow-x:auto;overflow-y:hidden;border:1px solid #242424;background:#0d0d0d;padding:14px}
-    .contrib-heatmap{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,11px);grid-auto-columns:11px;gap:4px;width:max-content;min-width:100%;align-content:start}
-    .contrib-cell{width:11px;height:11px;border-radius:2px;background:#242424;position:relative}
-    .contrib-cell[data-level="1"]{background:#555}.contrib-cell[data-level="2"]{background:#888}.contrib-cell[data-level="3"]{background:#bbb}.contrib-cell[data-level="4"]{background:#fff}
-    .contrib-cell[title]:hover{outline:1px solid #fff;outline-offset:1px}
-    .contrib-status{color:#777;font:11px 'DM Mono',monospace;margin:12px 0 0}
-    .contrib-img{width:100%;min-width:700px;height:auto;display:block;object-fit:contain;filter:grayscale(1);background:#0d0d0d}
-    .github-fallback{display:none;text-align:center;color:#888;font-size:.85rem;padding:24px;border:1px dashed #333}
-    .github-bottom{display:flex;justify-content:space-between;gap:16px;color:#777;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.07em;margin-top:18px}
-    .links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .contact-link{border:1px solid var(--line);padding:22px;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s,border-color .2s}
-    .contact-link:hover{background:#141414;border-color:#777}.contact-link small{display:block;color:#777;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em}.contact-link strong{display:block;margin-top:5px;font-size:.95rem}.arrow{color:#888;font-size:20px}
-    .contact-banner{margin-top:28px;border:1px solid #eee;padding:clamp(25px,5vw,55px);display:flex;justify-content:space-between;align-items:center;gap:25px}
-    .contact-banner h3{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.08em;line-height:1.05;margin:0;max-width:600px}
-    footer{padding:24px 0 35px;color:#777;font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;gap:15px}
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
-    .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;color:#777;font:10px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
-    .marquee-track{display:inline-block;animation:marquee 28s linear infinite}.marquee-track span{margin:0 24px}
-    @keyframes marquee{to{transform:translateX(-50%)}}
-    @media(max-width:800px){body{cursor:auto}.cursor,.cursor-ring{display:none}.hero{grid-template-columns:1fr;padding-top:75px}.hero-side{min-height:260px}.scroll-note{display:none}.about-grid{grid-template-columns:1fr;gap:24px}.skills-grid{grid-template-columns:repeat(2,1fr)}.links-grid{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:77px;left:0;right:0;background:#080808;padding:22px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:20px}.navlinks.open{display:flex}.menu-btn{display:block}.section-head{align-items:flex-start;flex-direction:column}.section-intro{max-width:500px}}
-    @media(max-width:560px){.wrap{width:calc(100% - 32px)}.hero h1{font-size:clamp(3.5rem,18vw,6rem)}section{padding:75px 0}.projects{grid-template-columns:1fr}.project{min-height:310px;padding:21px}.links-grid{grid-template-columns:1fr}.contact-banner{align-items:flex-start;flex-direction:column}.github-panel{padding:15px}.github-top{align-items:flex-start;flex-direction:column}.github-bottom{flex-direction:column}footer{flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+    :root {
+      --bg: #080808;
+      --panel: #101010;
+      --text: #f5f5f5;
+      --muted: #999;
+      --line: #292929;
+      --white: #fff;
+      --max: 1160px
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Manrope, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    a,
+    button {
+      color: inherit
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    ::selection {
+      background: #fff;
+      color: #000
+    }
+
+    .cursor,
+    .cursor-ring {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference
+    }
+
+    .cursor {
+      width: 7px;
+      height: 7px;
+      background: #fff
+    }
+
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #fff;
+      transition: width .2s, height .2s, opacity .2s
+    }
+
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring {
+      width: 52px;
+      height: 52px
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 48px));
+      margin: auto
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(8, 8, 8, .86);
+      backdrop-filter: blur(16px);
+      z-index: 100
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.06em;
+      font-size: 1.1rem
+    }
+
+    .brand span {
+      color: #777
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font: 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #b5b5b5
+    }
+
+    .navlinks a {
+      transition: color .2s
+    }
+
+    .navlinks a:hover {
+      color: #fff
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--line);
+      color: #fff;
+      padding: 8px 12px;
+      font: inherit
+    }
+
+    .eyebrow {
+      font: 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: #aaa
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 50px;
+      padding: 100px 0 92px;
+      position: relative
+    }
+
+    .hero h1 {
+      font-size: clamp(3.8rem, 9vw, 8.5rem);
+      letter-spacing: -.095em;
+      line-height: .91;
+      margin: 26px 0 30px;
+      font-weight: 800
+    }
+
+    .hero h1 .outline {
+      -webkit-text-stroke: 1px #777;
+      color: transparent
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      color: #aaa;
+      font-size: 1rem
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px
+    }
+
+    .btn {
+      border: 1px solid #eee;
+      background: #f5f5f5;
+      color: #080808;
+      padding: 13px 18px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform .2s, background .2s, color .2s
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #080808;
+      color: #fff
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #eee;
+      border-color: #444
+    }
+
+    .btn.secondary:hover {
+      border-color: #fff;
+      background: #fff;
+      color: #000
+    }
+
+    .hero-side {
+      border: 1px solid var(--line);
+      padding: 28px;
+      position: relative;
+      background: linear-gradient(145deg, #121212, #080808);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden
+    }
+
+    .hero-side:after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      right: -100px;
+      top: 45px;
+      box-shadow: 0 0 0 35px #ffffff03, 0 0 0 70px #ffffff02
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #c8c8c8;
+      font: 11px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #eee;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #fff
+    }
+
+    .monogram {
+      font-size: clamp(5rem, 10vw, 8rem);
+      font-weight: 800;
+      letter-spacing: -.12em;
+      line-height: 1;
+      z-index: 1
+    }
+
+    .hero-side-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      z-index: 1;
+      color: #888;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em
+    }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 26px;
+      right: 0;
+      font: 10px 'DM Mono', monospace;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: .15em
+    }
+
+    section {
+      padding: 105px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 45px
+    }
+
+    .section-index {
+      font: 11px 'DM Mono', monospace;
+      color: #777
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -.075em;
+      margin: 15px 0 0
+    }
+
+    .section-intro {
+      color: #888;
+      max-width: 350px;
+      font-size: .9rem
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px
+    }
+
+    .about-big {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      letter-spacing: -.045em;
+      line-height: 1.35;
+      margin: 0
+    }
+
+    .about-big span {
+      color: #777
+    }
+
+    .about-details {
+      color: #999;
+      font-size: .94rem
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      padding: 18px
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #fff
+    }
+
+    .stat small {
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 26px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .25s, transform .25s
+    }
+
+    .project:hover {
+      border-color: #777;
+      transform: translateY(-4px)
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em
+    }
+
+    .project-art {
+      height: 100px;
+      margin: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #242424;
+      background: radial-gradient(ellipse at center, #1e1e1e 0%, #101010 70%);
+      overflow: hidden
+    }
+
+    .art-word {
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.08em
+    }
+
+    .art-word span {
+      color: #666
+    }
+
+    .project h3 {
+      font-size: 1.55rem;
+      letter-spacing: -.05em;
+      margin: 0 0 8px
+    }
+
+    .project p {
+      color: #929292;
+      font-size: .87rem;
+      margin: 0 0 20px;
+      max-width: 500px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 15px
+    }
+
+    .tag {
+      border: 1px solid #343434;
+      padding: 5px 8px;
+      color: #aaa;
+      font: 10px 'DM Mono', monospace
+    }
+
+    .project-link {
+      font-size: 20px;
+      transition: transform .2s
+    }
+
+    .project-link:hover {
+      transform: translate(3px, -3px)
+    }
+
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px
+    }
+
+    .project-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #444;
+      padding: 9px 12px;
+      color: #ddd;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: background .2s, border-color .2s, color .2s
+    }
+
+    .project-action:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line)
+    }
+
+    .skill {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      min-height: 110px;
+      transition: background .2s
+    }
+
+    .skill:hover {
+      background: #151515
+    }
+
+    .skill small {
+      font: 10px 'DM Mono', monospace;
+      color: #777
+    }
+
+    .skill strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 1rem
+    }
+
+    .github-panel {
+      border: 1px solid var(--line);
+      padding: 26px;
+      background: #0d0d0d
+    }
+
+    .github-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 24px
+    }
+
+    .github-top h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: -.04em
+    }
+
+    .github-top p {
+      margin: 5px 0 0;
+      color: #777;
+      font-size: .8rem
+    }
+
+    .github-cta {
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      border-bottom: 1px solid #777;
+      padding-bottom: 5px;
+      white-space: nowrap
+    }
+
+    .contrib-frame {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border: 1px solid #242424;
+      background: #0d0d0d;
+      padding: 14px
+    }
+
+    .contrib-heatmap {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(7, 11px);
+      grid-auto-columns: 11px;
+      gap: 4px;
+      width: max-content;
+      min-width: 100%;
+      align-content: start
+    }
+
+    .contrib-cell {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      background: #242424;
+      position: relative
+    }
+
+    .contrib-cell[data-level="1"] {
+      background: #555
+    }
+
+    .contrib-cell[data-level="2"] {
+      background: #888
+    }
+
+    .contrib-cell[data-level="3"] {
+      background: #bbb
+    }
+
+    .contrib-cell[data-level="4"] {
+      background: #fff
+    }
+
+    .contrib-cell[title]:hover {
+      outline: 1px solid #fff;
+      outline-offset: 1px
+    }
+
+    .contrib-status {
+      color: #777;
+      font: 11px 'DM Mono', monospace;
+      margin: 12px 0 0
+    }
+
+    .contrib-img {
+      width: 100%;
+      min-width: 700px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: grayscale(1);
+      background: #0d0d0d
+    }
+
+    .github-fallback {
+      display: none;
+      text-align: center;
+      color: #888;
+      font-size: .85rem;
+      padding: 24px;
+      border: 1px dashed #333
+    }
+
+    .github-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-top: 18px
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px
+    }
+
+    .contact-link {
+      border: 1px solid var(--line);
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background .2s, border-color .2s
+    }
+
+    .contact-link:hover {
+      background: #141414;
+      border-color: #777
+    }
+
+    .contact-link small {
+      display: block;
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em
+    }
+
+    .contact-link strong {
+      display: block;
+      margin-top: 5px;
+      font-size: .95rem
+    }
+
+    .arrow {
+      color: #888;
+      font-size: 20px
+    }
+
+    .contact-banner {
+      margin-top: 28px;
+      border: 1px solid #eee;
+      padding: clamp(25px, 5vw, 55px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px
+    }
+
+    .contact-banner h3 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -.08em;
+      line-height: 1.05;
+      margin: 0;
+      max-width: 600px
+    }
+
+    footer {
+      padding: 24px 0 35px;
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .marquee {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+      color: #777;
+      font: 10px 'DM Mono', monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space: nowrap
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 28s linear infinite
+    }
+
+    .marquee-track span {
+      margin: 0 24px
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @media(max-width:800px) {
+      body {
+        cursor: auto
+      }
+
+      .cursor,
+      .cursor-ring {
+        display: none
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 75px
+      }
+
+      .hero-side {
+        min-height: 260px
+      }
+
+      .scroll-note {
+        display: none
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .links-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: #080808;
+        padding: 22px 24px;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px
+      }
+
+      .navlinks.open {
+        display: flex
+      }
+
+      .menu-btn {
+        display: block
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .section-intro {
+        max-width: 500px
+      }
+    }
+
+    @media(max-width:560px) {
+      .wrap {
+        width: calc(100% - 32px)
+      }
+
+      .hero h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem)
+      }
+
+      section {
+        padding: 75px 0
+      }
+
+      .projects {
+        grid-template-columns: 1fr
+      }
+
+      .project {
+        min-height: 310px;
+        padding: 21px
+      }
+
+      .links-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact-banner {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .github-panel {
+        padding: 15px
+      }
+
+      .github-top {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .github-bottom {
+        flex-direction: column
+      }
+
+      footer {
+        flex-direction: column
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* Redesigned hero section */
+    .hero-v2 {
+      background: #080808;
+      color: #f5f5f5;
+      padding: 68px 6% 44px;
+      overflow: hidden;
+      border-top: 0
+    }
+
+    .hero-v2-inner {
+      position: relative;
+      max-width: 1240px;
+      margin: 0 auto;
+      min-height: 590px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: clamp(40px, 7vw, 100px);
+      padding-bottom: 65px
+    }
+
+    .hero-v2-content {
+      position: relative;
+      z-index: 1;
+      min-width: 0
+    }
+
+    .hero-label {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #aaa;
+      font: 10px/1.6 'DM Mono', monospace;
+      letter-spacing: 1.6px;
+      margin-bottom: 30px
+    }
+
+    .hero-status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: #eaeaea;
+      box-shadow: 0 0 12px #ffffff50
+    }
+
+    .hero-label-divider {
+      color: #555
+    }
+
+    .hero-v2-title {
+      font-size: clamp(48px, 6.3vw, 88px);
+      line-height: .99;
+      letter-spacing: -.075em;
+      font-weight: 600;
+      margin: 0 0 30px
+    }
+
+    .hero-title-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px #eee
+    }
+
+    .hero-v2-description {
+      max-width: 480px;
+      color: #999;
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0 0 32px
+    }
+
+    .hero-v2-description strong {
+      color: #fff;
+      font-weight: 600
+    }
+
+    .hero-v2-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .hero-v2-btn {
+      min-height: 48px;
+      padding: 0 19px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease
+    }
+
+    .hero-v2-btn:hover {
+      transform: translateY(-3px)
+    }
+
+    /* Solar system animation inside the profile card */
+    /* Solar system: all rings share the exact center of the profile art */
+    .solar-system {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #191919 0%, #101010 48%, #080808 100%);
+    }
+
+    .solar-system .solar-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 1px solid #ffffff30;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .solar-system .orbit-one {
+      width: 100px;
+      height: 100px;
+      animation: solar-orbit-one 5s linear infinite;
+    }
+
+    .solar-system .orbit-two {
+      width: 155px;
+      height: 115px;
+      animation: solar-orbit-two 8s linear infinite;
+    }
+
+    .solar-system .orbit-three {
+      width: 210px;
+      height: 155px;
+      animation: solar-orbit-three 11s linear infinite;
+    }
+
+    .solar-system .orbit-four {
+      width: 270px;
+      height: 195px;
+      animation: solar-orbit-four 15s linear infinite reverse;
+    }
+
+    .solar-system .planet {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px #ffffffa0;
+      transform: translateX(-50%);
+    }
+
+    .solar-system .planet-two {
+      width: 6px;
+      height: 6px;
+      background: #c9c9c9;
+    }
+
+    .solar-system .planet-three {
+      width: 8px;
+      height: 8px;
+      background: #888;
+    }
+
+    .solar-system .planet-four {
+      width: 5px;
+      height: 5px;
+      background: #eee;
+    }
+
+    .solar-system .solar-sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #fff;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 8px #fff, 0 0 18px #ffffffa0, 0 0 30px #ffffff40;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* The decorative dot is hidden so it cannot misalign or overlap the sun. */
+    .solar-system .profile-monogram {
+      display: none;
+    }
+
+    @keyframes solar-orbit-one {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes solar-orbit-two {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes solar-orbit-three {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes solar-orbit-four {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @media (max-width: 480px) {
+      .solar-system .orbit-four {
+        width: min(270px, 92%);
+        height: min(195px, 68%);
+      }
+      .solar-system .orbit-three {
+        width: min(210px, 76%);
+        height: min(155px, 56%);
+      }
+      .solar-system .orbit-two {
+        width: min(155px, 58%);
+        height: min(115px, 43%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .solar-system .solar-orbit { animation: none; }
+    }
+
+    .hero-v2-btn.primary {
+      background: #f5f5f5;
+      color: #080808;
+      border: 1px solid #f5f5f5
+    }
+
+    .hero-v2-btn.primary:hover {
+      background: #cfcfcf;
+      border-color: #cfcfcf
+    }
+
+    .hero-v2-btn.outline-btn {
+      color: #f5f5f5;
+      border: 1px solid #383838;
+      background: transparent
+    }
+
+    .hero-v2-btn.outline-btn:hover {
+      border-color: #aaa;
+      background: #151515
+    }
+
+    .hero-v2-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid #262626;
+      margin-top: 48px;
+      padding-top: 17px;
+      color: #666;
+      font: 9px/1.6 'DM Mono', monospace;
+      letter-spacing: 1px
+    }
+
+    .hero-v2-card {
+      border: 1px solid #303030;
+      background: #0d0d0d;
+      padding: 17px;
+      min-width: 0;
+      box-shadow: 0 30px 100px #0008
+    }
+
+    .profile-card-top,
+    .profile-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #777;
+      font: 9px/1.6 'DM Mono', monospace;
+      letter-spacing: 1px
+    }
+
+    .profile-card-index {
+      color: #555
+    }
+
+    .profile-card-art {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 300px;
+      margin: 17px 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse at center, #292929 0%, #151515 43%, #0a0a0a 75%);
+      border: 1px solid #222
+    }
+
+    .profile-card-art:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .16;
+      background-image: linear-gradient(#888 1px, transparent 1px), linear-gradient(90deg, #888 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: linear-gradient(transparent, #000, transparent)
+    }
+
+    .profile-orbit {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 1px solid #555;
+      border-radius: 50%
+    }
+
+    .orbit-one {
+      transform: scaleX(1.3) rotate(-30deg)
+    }
+
+    .orbit-two {
+      transform: scaleX(1.3) rotate(30deg);
+      border-color: #383838
+    }
+
+    .profile-monogram {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .035em;
+      font-size: clamp(90px, 12vw, 145px);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1;
+      padding: 0 .08em .08em 0;
+      color: #f4f4f4;
+      text-shadow: 0 0 45px #ffffff18;
+      white-space: nowrap;
+      user-select: none
+    }
+
+    .profile-monogram span {
+      display: inline-block;
+      color: #777;
+      transform: translateY(.075em)
+    }
+
+    .profile-coordinate {
+      position: absolute;
+      color: #777;
+      font: 8px 'DM Mono', monospace;
+      letter-spacing: 1px
+    }
+
+    .profile-coordinate.top-left {
+      top: 16px;
+      left: 16px
+    }
+
+    .profile-coordinate.bottom-right {
+      bottom: 16px;
+      right: 16px
+    }
+
+    .profile-card-name {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 6px 0 20px
+    }
+
+    .profile-card-name h2 {
+      font-size: 21px;
+      letter-spacing: -.7px;
+      font-weight: 600;
+      margin: 0 0 6px
+    }
+
+    .profile-card-name p {
+      color: #888;
+      font-size: 11px;
+      margin: 0
+    }
+
+    .profile-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #333;
+      display: grid;
+      place-items: center;
+      color: #eee;
+      font-size: 16px
+    }
+
+    .profile-card-bottom {
+      border-top: 1px solid #292929;
+      padding-top: 15px;
+      letter-spacing: 0
+    }
+
+    .profile-card-bottom>span:first-child {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #bbb
+    }
+
+    .hero-v2-scroll {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #777;
+      font: 9px 'DM Mono', monospace;
+      letter-spacing: 1.5px
+    }
+
+    .scroll-line {
+      width: 35px;
+      height: 1px;
+      background: #777
+    }
+
+    .marquee-v2 {
+      background: #000;
+      color: #f2f2f2;
+      padding: 17px 0;
+      border-top: 1px solid #292929;
+      border-bottom: 1px solid #292929;
+      font: 10px 'DM Mono', monospace;
+      letter-spacing: 2px
+    }
+
+    .marquee-v2 .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      width: max-content;
+      min-width: 200%;
+      animation: hero-marquee-scroll 28s linear infinite;
+      white-space: nowrap
+    }
+
+    .marquee-v2 .marquee-track span {
+      margin: 0
+    }
+
+    .marquee-v2 .marquee-star {
+      font-size: 17px;
+      color: #777
+    }
+
+    @keyframes hero-marquee-scroll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @media(max-width:850px) {
+      .hero-v2 {
+        padding: 58px 6% 38px
+      }
+
+      .hero-v2-inner {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        min-height: auto;
+        padding-bottom: 60px
+      }
+
+      .hero-v2-title {
+        font-size: clamp(52px, 10vw, 78px)
+      }
+
+      .hero-v2-card {
+        width: 100%;
+        max-width: 520px;
+        justify-self: center
+      }
+
+      .profile-card-art {
+        min-height: 270px
+      }
+
+      .profile-monogram {
+        font-size: clamp(100px, 18vw, 120px)
+      }
+    }
+
+    @media(max-width:560px) {
+      .hero-v2 {
+        padding: 48px 16px 32px
+      }
+
+      .hero-label {
+        font-size: 8px;
+        gap: 7px
+      }
+
+      .hero-v2-title {
+        font-size: clamp(45px, 12vw, 60px)
+      }
+
+      .hero-v2-description {
+        font-size: 14px
+      }
+
+      .hero-v2-actions {
+        flex-direction: column
+      }
+
+      .hero-v2-btn {
+        width: 100%;
+        justify-content: space-between
+      }
+
+      .hero-v2-meta {
+        flex-direction: column
+      }
+
+      .profile-card-art {
+        min-height: 235px
+      }
+
+      .profile-monogram {
+        font-size: clamp(82px, 24vw, 100px)
+      }
+
+      .profile-card-bottom {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .hero-v2-scroll {
+        font-size: 8px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .marquee-v2 .marquee-track {
+        animation: none
+      }
+
+      .hero-v2-btn {
+        transition: none
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="cursor" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
   <header class="nav wrap">
-    <a class="brand" href="#home" aria-label="Samay Masram home">Samay Masram<span>.</span></a>
+    <a class="brand" href="#home" aria-label="Samay Masram home">SM<span>.</span></a>
     <nav class="navlinks" id="navlinks" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#activity">Activity</a><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a
+        href="#skills">Skills</a><a href="#activity">Activity</a><a href="resume.pdf" target="_blank"
+        rel="noopener noreferrer">Resume ↗</a><a href="#contact">Contact</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks">MENU +</button>
   </header>
   <main>
-    <div class="wrap hero" id="home">
-      <div class="reveal">
-        <div class="eyebrow">Aspiring software engineer · India</div>
-        <h1>Building<br><span class="outline">useful</span><br>things.</h1>
-        <p class="hero-copy">I'm Samay Masram — a developer focused on Java, backend development, and database-driven applications. I enjoy turning practical problems into clean, useful software.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#projects">Explore projects <span>↘</span></a>
-          <a class="btn secondary" href="mailto:samaymasram1404@gmail.com">Let's connect <span>↗</span></a>
-        </div>
-      </div>
-      <aside class="hero-side reveal" aria-label="Developer profile card">
-        <div class="availability"><span class="dot"></span> Open to opportunities</div>
-        <div class="monogram">S<span style="color:#666">M</span></div>
-        <div class="hero-side-bottom"><span>Curiosity → Code</span><span>Portfolio / 2026</span></div>
-      </aside>
-      <div class="scroll-note">Scroll to explore ↓</div>
-    </div>
-    <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Build with intent</span>✳<span>Learn continuously</span>✳<span>Keep it simple</span>✳<span>Build with intent</span>✳<span>Learn continuously</span>✳<span>Keep it simple</span>✳</div></div>
-
-    <section id="about"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">01 / About</div><h2>A little<br>about me.</h2></div><p class="section-intro">Focused on fundamentals, curious about what’s next, and always building something to learn.</p></div>
-      <div class="about-grid reveal">
-        <p class="about-big">I like building software that is <span>thoughtful, reliable, and easy to use.</span></p>
-        <div class="about-details"><p>My experience includes Java backend development, database-driven applications, and MVC architecture. During my Java Development internship at Sunbeam Infotech in Pune, I worked on a Quiz Management System using Java, JSP, Servlets, JDBC, and MySQL.</p><p>I’m currently pursuing a B.Tech in Computer Science and Engineering at D.K.T.E. Society’s Textile & Engineering Institute. I value readable code, clear architecture, and steady progress over unnecessary complexity.</p>
-          <div class="stat-row"><div class="stat"><strong>150+</strong><small>LeetCode problems</small></div><div class="stat"><strong>7.43</strong><small>GPA</small></div><div class="stat"><strong>Java</strong><small>Internship focus</small></div></div>
-        </div>
-      </div>
-    </div></section>
-
-    
-    <section id="experience"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">02 / Experience</div><h2>Work that<br>taught me.</h2></div><p class="section-intro">Hands-on experience building and maintaining database-driven Java applications.</p></div>
-      <article class="project reveal" style="min-height:0">
-        <div class="project-top"><span>Dec 2025 — Jan 2026</span><span>Pune, India</span></div>
-        <h3 style="margin-top:24px">Java Development Intern <span style="color:#777">/ Sunbeam Infotech</span></h3>
-        <p>Developed and maintained a Quiz Management System using Java, JSP, Servlets, JDBC, and MySQL. Implemented database-backed quiz and student workflows, and debugged issues in the existing codebase to improve application stability and functionality.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">JSP & Servlets</span><span class="tag">JDBC</span><span class="tag">MySQL</span><span class="tag">Debugging</span></div>
-      </article>
-    </div></section>
-
-    <section id="projects"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">03 / Selected work</div><h2>Projects<span style="color:#666">.</span></h2></div><p class="section-intro">A selection of projects I’ve built and contributed to. Open the repositories to explore the implementation.</p></div>
-      <div class="projects">
-        <article class="project reveal">
-          <div class="project-top"><span>01 / Web application</span><span>Credential platform</span></div>
-          <div class="project-art"><div class="art-word">Cred<span>Folio</span></div></div>
-          <h3>CredFolio</h3><p>A shareable credential portfolio built with Next.js, React, TypeScript, and Tailwind CSS. Firebase supports backend services, while QR code generation makes profiles and professional achievements easy to share.</p>
-          <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Firebase</span><span class="tag">QR codes</span></div>
-          <div class="project-actions">
-            <a class="project-action" href="https://credfolio-five.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
-            <a class="project-action" href="https://github.com/SamayMasram/CredFolio" target="_blank" rel="noopener noreferrer">Source code ↗</a>
+    <section class="hero-v2" id="home" aria-label="Introduction">
+      <div class="hero-v2-inner">
+        <div class="hero-v2-content reveal">
+          <div class="hero-label"><span class="hero-status-dot"></span> ASPIRING SOFTWARE ENGINEER <span
+              class="hero-label-divider">/</span> INDIA</div>
+          <h1 class="hero-v2-title">Turning ideas<br>into <span class="hero-title-outline">software.</span></h1>
+          <p class="hero-v2-description">I'm <strong>Samay Masram</strong> — a developer focused on Java, backend
+            engineering, and database-driven applications. I build practical solutions with clean code and a curiosity
+            for how things work.</p>
+          <div class="hero-v2-actions">
+            <a class="hero-v2-btn primary" href="#projects">Explore my work <span>↗</span></a>
+            <a class="hero-v2-btn outline-btn" href="mailto:samaymasram1404@gmail.com">Get in touch <span>↗</span></a>
           </div>
-        </article>
-        <article class="project reveal">
-          <div class="project-top"><span>02 / Personal finance</span><span>Tracking tool</span></div>
-          <div class="project-art"><div class="art-word">Expense<span> / Tracker</span></div></div>
-          <h3>Expense Tracker</h3><p>A Java-based expense manager using a DAO/service architecture, JDBC, and MySQL. Includes transaction categorization, balance validation, SQL-powered search and sorting, and CSV export for user-specific financial records.</p>
-          <div class="tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">DAO / Service</span></div>
-          <a class="project-link" href="https://github.com/Rohitsenpai01/Expense-Tracker" target="_blank" rel="noopener noreferrer" aria-label="View Expense Tracker on GitHub">↗</a>
-        </article>
-        <article class="project reveal">
-          <div class="project-top"><span>03 / Academic project</span><span>Quiz platform</span></div>
-          <div class="project-art"><div class="art-word">Quiz<span> / Manager</span></div></div>
-          <h3>Quiz Management System</h3><p>A Java-based quiz application using MVC architecture with Model, DAO, Utility, and UI layers. It uses MySQL persistence and Java Collections validation to prevent duplicate quizzes and enforce one attempt per student.</p>
-          <div class="tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">JSP</span><span class="tag">Servlets</span><span class="tag">MySQL</span><span class="tag">MVC</span></div>
-          <a class="project-link" href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer" aria-label="Find projects on GitHub">↗</a>
-        </article>
-      </div>
-    </div></section>
-
-    <section id="skills"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">04 / Toolkit</div><h2>Skills &<br>interests.</h2></div><p class="section-intro">A growing toolkit for building maintainable applications from the data layer to the API.</p></div>
-      <div class="skills-grid reveal">
-        <div class="skill"><small>01 / Language</small><strong>Java · C · C++ · Python · JavaScript</strong></div>
-        <div class="skill"><small>02 / Backend</small><strong>JDBC · JSP · Servlets · Spring Boot</strong></div>
-        <div class="skill"><small>03 / Data</small><strong>MySQL · MongoDB · SQL</strong></div>
-        <div class="skill"><small>04 / Foundations</small><strong>DSA & OOP</strong></div>
-        <div class="skill"><small>05 / Web</small><strong>HTML5 · CSS3 · Bootstrap · React</strong></div>
-        <div class="skill"><small>06 / Tools</small><strong>Git · GitHub · VS Code · Postman</strong></div>
-        <div class="skill"><small>07 / Architecture</small><strong>MVC · API design</strong></div>
-        <div class="skill"><small>08 / Exploring</small><strong>LLM Integration · RAG · Prompt Engineering</strong></div>
-      </div>
-      <div class="stat-row reveal" style="margin-top:20px">
-        <div class="stat"><strong>150+</strong><small>DSA problems solved</small></div>
-        <div class="stat"><strong>Regional Finalist</strong><small>IBM SkillUp Hackathon</small></div>
-        <div class="stat"><strong>Java Programming</strong><small>Internship certificate</small></div>
-      </div>
-    </div></section>
-
-    <section id="activity"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">05 / Consistency</div><h2>GitHub activity<span style="color:#666">.</span></h2></div><p class="section-intro">A year of commits, code, and learning. Contribution data is provided by a public third-party chart service.</p></div>
-      <div class="github-panel reveal">
-        <div class="github-top"><div><h3>Contribution graph</h3><p>@SamayMasram · Public GitHub activity</p></div><a class="github-cta" href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></div>
-        <div class="contrib-frame" id="contribFrame" aria-label="GitHub contributions over the last year">
-          <div class="contrib-heatmap" id="contribHeatmap" role="img" aria-label="Daily GitHub contributions for the last year"></div>
+          <div class="hero-v2-meta"><span>JAVA · BACKEND · DATABASES</span><span>BASED IN INDIA</span></div>
         </div>
-        <p class="contrib-status" id="contribStatus" aria-live="polite">Loading contribution data…</p>
-        <div class="github-fallback" id="githubFallback">The contribution chart could not load. View your <a href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"><u>live GitHub activity</u></a> directly.</div>
-        <div class="github-bottom"><span>Less activity ← → More activity</span><span>Updates from external chart service</span></div>
+        <aside class="hero-v2-card reveal" aria-label="Developer profile card">
+          <div class="profile-card-top"><span>DEVELOPER PROFILE</span><span class="profile-card-index">001 / 026</span>
+          </div>
+          
+          <div class="profile-card-art solar-system" aria-label="Animated monochrome solar system">
+            <div class="solar-orbit orbit-one"><span class="planet planet-one"></span></div>
+            <div class="solar-orbit orbit-two"><span class="planet planet-two"></span></div>
+            <div class="solar-orbit orbit-three"><span class="planet planet-three"></span></div>
+            <div class="solar-orbit orbit-four"><span class="planet planet-four"></span></div>
+            <div class="solar-sun" aria-hidden="true"></div>
+            <div class="profile-monogram" aria-hidden="true">•</div>
+            <span class="profile-coordinate top-left">CS / 01</span>
+            <span class="profile-coordinate bottom-right">BUILDING THE FUTURE</span>
+          </div>
+          <div class="profile-card-name">
+        <div>
+          <h2>Samay Masram</h2>
+          <p>Java Developer · Problem Solver</p>
+        </div><span class="profile-arrow" aria-hidden="true">↗</span>
       </div>
-    </div></section>
+      <div class="profile-card-bottom"><span><span class="hero-status-dot"></span> Open to
+          opportunities</span><span>2026 — PRESENT</span></div>
+      </aside>
+      <div class="hero-v2-scroll"><span class="scroll-line"></span> SCROLL TO EXPLORE</div>
+      </div>
+    </section>
+    <div class="marquee marquee-v2" aria-hidden="true">
+      <div class="marquee-track"><span>BUILD WITH INTENT</span><span class="marquee-star">✳</span><span>THINK IN
+          SYSTEMS</span><span class="marquee-star">✳</span><span>LEARN CONTINUOUSLY</span><span
+          class="marquee-star">✳</span><span>BUILD WITH INTENT</span><span class="marquee-star">✳</span><span>THINK IN
+          SYSTEMS</span><span class="marquee-star">✳</span><span>LEARN CONTINUOUSLY</span><span
+          class="marquee-star">✳</span></div>
+    </div>
 
-    <section id="contact"><div class="wrap">
-      <div class="section-head reveal"><div><div class="eyebrow">06 / Get in touch</div><h2>Let's make<br>something good.</h2></div><p class="section-intro">Have an opportunity, project idea, or just want to connect? Reach out through any of these platforms.</p></div>
-      <div class="links-grid reveal">
-        <a class="contact-link" href="mailto:samaymasram1404@gmail.com"><span><small>Email</small><strong>Send me a message</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-link" href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"><span><small>GitHub</small><strong>@SamayMasram</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-link" href="https://www.linkedin.com/in/samay-masram-827056320/" target="_blank" rel="noopener noreferrer"><span><small>LinkedIn</small><strong>Let's connect</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-link" href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank" rel="noopener noreferrer"><span><small>LeetCode</small><strong>Problem solving</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-link" href="https://x.com/MasramSamay" target="_blank" rel="noopener noreferrer"><span><small>X / Twitter</small><strong>@MasramSamay</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-link" href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"><span><small>Repositories</small><strong>Explore my code</strong></span><span class="arrow">↗</span></a>
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">01 / About</div>
+            <h2>A little<br>about me.</h2>
+          </div>
+          <p class="section-intro">Focused on fundamentals, curious about what’s next, and always building something to
+            learn.</p>
+        </div>
+        <div class="about-grid reveal">
+          <p class="about-big">I like building software that is <span>thoughtful, reliable, and easy to use.</span></p>
+          <div class="about-details">
+            <p>My experience includes Java backend development, database-driven applications, and MVC architecture.
+              During my Java Development internship at Sunbeam Infotech in Pune, I worked on a Quiz Management System
+              using Java, JSP, Servlets, JDBC, and MySQL.</p>
+            <p>I’m currently pursuing a B.Tech in Computer Science and Engineering at D.K.T.E. Society’s Textile &
+              Engineering Institute. I value readable code, clear architecture, and steady progress over unnecessary
+              complexity.</p>
+            <div class="stat-row">
+              <div class="stat"><strong>150+</strong><small>LeetCode problems</small></div>
+              <div class="stat"><strong>7.43</strong><small>GPA</small></div>
+              <div class="stat"><strong>Java</strong><small>Internship focus</small></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contact-banner reveal"><h3>Have a good problem?<br><span style="color:#777">Let's solve it.</span></h3><a class="btn" href="mailto:samaymasram1404@gmail.com">Contact me <span>↗</span></a></div>
-    </div></section>
+    </section>
+
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">02 / Experience</div>
+            <h2>Work that<br>taught me.</h2>
+          </div>
+          <p class="section-intro">Hands-on experience building and maintaining database-driven Java applications.</p>
+        </div>
+        <article class="project reveal" style="min-height:0">
+          <div class="project-top"><span>Dec 2025 — Jan 2026</span><span>Pune, India</span></div>
+          <h3 style="margin-top:24px">Java Development Intern <span style="color:#777">/ Sunbeam Infotech</span></h3>
+          <p>Developed and maintained a Quiz Management System using Java, JSP, Servlets, JDBC, and MySQL. Implemented
+            database-backed quiz and student workflows, and debugged issues in the existing codebase to improve
+            application stability and functionality.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">JSP & Servlets</span><span
+              class="tag">JDBC</span><span class="tag">MySQL</span><span class="tag">Debugging</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">03 / Selected work</div>
+            <h2>Projects<span style="color:#666">.</span></h2>
+          </div>
+          <p class="section-intro">A selection of projects I’ve built and contributed to. Open the repositories to
+            explore the implementation.</p>
+        </div>
+        <div class="projects">
+          <article class="project reveal">
+            <div class="project-top"><span>01 / Web application</span><span>Credential platform</span></div>
+            <div class="project-art">
+              <div class="art-word">Cred<span>Folio</span></div>
+            </div>
+            <h3>CredFolio</h3>
+            <p>A shareable credential portfolio built with Next.js, React, TypeScript, and Tailwind CSS. Firebase
+              supports backend services, while QR code generation makes profiles and professional achievements easy to
+              share.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span
+                class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Firebase</span><span
+                class="tag">QR codes</span></div>
+            <div class="project-actions">
+              <a class="project-action" href="https://credfolio-five.vercel.app/" target="_blank"
+                rel="noopener noreferrer">Live demo ↗</a>
+              <a class="project-action" href="https://github.com/SamayMasram/CredFolio" target="_blank"
+                rel="noopener noreferrer">Source code ↗</a>
+            </div>
+          </article>
+          <article class="project reveal">
+            <div class="project-top"><span>02 / Personal finance</span><span>Tracking tool</span></div>
+            <div class="project-art">
+              <div class="art-word">Expense<span> / Tracker</span></div>
+            </div>
+            <h3>Expense Tracker</h3>
+            <p>A Java-based expense manager using a DAO/service architecture, JDBC, and MySQL. Includes transaction
+              categorization, balance validation, SQL-powered search and sorting, and CSV export for user-specific
+              financial records.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">JDBC</span><span
+                class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">DAO / Service</span></div>
+            <a class="project-link" href="https://github.com/Rohitsenpai01/Expense-Tracker" target="_blank"
+              rel="noopener noreferrer" aria-label="View Expense Tracker on GitHub">↗</a>
+          </article>
+          <article class="project reveal">
+            <div class="project-top"><span>03 / Academic project</span><span>Quiz platform</span></div>
+            <div class="project-art">
+              <div class="art-word">Quiz<span> / Manager</span></div>
+            </div>
+            <h3>Quiz Management System</h3>
+            <p>A Java-based quiz application using MVC architecture with Model, DAO, Utility, and UI layers. It uses
+              MySQL persistence and Java Collections validation to prevent duplicate quizzes and enforce one attempt per
+              student.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">JDBC</span><span
+                class="tag">JSP</span><span class="tag">Servlets</span><span class="tag">MySQL</span><span
+                class="tag">MVC</span></div>
+            <a class="project-link" href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"
+              aria-label="Find projects on GitHub">↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">04 / Toolkit</div>
+            <h2>Skills &<br>interests.</h2>
+          </div>
+          <p class="section-intro">A growing toolkit for building maintainable applications from the data layer to the
+            API.</p>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill"><small>01 / Language</small><strong>Java · C · C++ · Python · JavaScript</strong></div>
+          <div class="skill"><small>02 / Backend</small><strong>JDBC · JSP · Servlets · Spring Boot</strong></div>
+          <div class="skill"><small>03 / Data</small><strong>MySQL · MongoDB · SQL</strong></div>
+          <div class="skill"><small>04 / Foundations</small><strong>DSA & OOP</strong></div>
+          <div class="skill"><small>05 / Web</small><strong>HTML5 · CSS3 · Bootstrap · React</strong></div>
+          <div class="skill"><small>06 / Tools</small><strong>Git · GitHub · VS Code · Postman</strong></div>
+          <div class="skill"><small>07 / Architecture</small><strong>MVC · API design</strong></div>
+          <div class="skill"><small>08 / Exploring</small><strong>LLM Integration · RAG · Prompt Engineering</strong>
+          </div>
+        </div>
+        <div class="stat-row reveal" style="margin-top:20px">
+          <div class="stat"><strong>150+</strong><small>DSA problems solved</small></div>
+          <div class="stat"><strong>Regional Finalist</strong><small>IBM SkillUp Hackathon</small></div>
+          <div class="stat"><strong>Java Programming</strong><small>Internship certificate</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activity">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">05 / Consistency</div>
+            <h2>GitHub activity<span style="color:#666">.</span></h2>
+          </div>
+          <p class="section-intro">A year of commits, code, and learning. Contribution data is provided by a public
+            third-party chart service.</p>
+        </div>
+        <div class="github-panel reveal">
+          <div class="github-top">
+            <div>
+              <h3>Contribution graph</h3>
+              <p>@SamayMasram · Public GitHub activity</p>
+            </div><a class="github-cta" href="https://github.com/SamayMasram" target="_blank"
+              rel="noopener noreferrer">View GitHub profile ↗</a>
+          </div>
+          <div class="contrib-frame" id="contribFrame" aria-label="GitHub contributions over the last year">
+            <div class="contrib-heatmap" id="contribHeatmap" role="img"
+              aria-label="Daily GitHub contributions for the last year"></div>
+          </div>
+          <p class="contrib-status" id="contribStatus" aria-live="polite">Loading contribution data…</p>
+          <div class="github-fallback" id="githubFallback">The contribution chart could not load. View your <a
+              href="https://github.com/SamayMasram" target="_blank" rel="noopener noreferrer"><u>live GitHub
+                activity</u></a> directly.</div>
+          <div class="github-bottom"><span>Less activity ← → More activity</span><span>Updates from external chart
+              service</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">06 / Get in touch</div>
+            <h2>Let's make<br>something good.</h2>
+          </div>
+          <p class="section-intro">Have an opportunity, project idea, or just want to connect? Reach out through any of
+            these platforms.</p>
+        </div>
+        <div class="links-grid reveal">
+          <a class="contact-link" href="mailto:samaymasram1404@gmail.com"><span><small>Email</small><strong>Send me a
+                message</strong></span><span class="arrow">↗</span></a>
+          <a class="contact-link" href="https://github.com/SamayMasram" target="_blank"
+            rel="noopener noreferrer"><span><small>GitHub</small><strong>@SamayMasram</strong></span><span
+              class="arrow">↗</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/samay-masram-827056320/" target="_blank"
+            rel="noopener noreferrer"><span><small>LinkedIn</small><strong>Let's connect</strong></span><span
+              class="arrow">↗</span></a>
+          <a class="contact-link" href="https://leetcode.com/u/Kwgl4IASPl/" target="_blank"
+            rel="noopener noreferrer"><span><small>LeetCode</small><strong>Problem solving</strong></span><span
+              class="arrow">↗</span></a>
+          <a class="contact-link" href="https://x.com/MasramSamay" target="_blank"
+            rel="noopener noreferrer"><span><small>X / Twitter</small><strong>@MasramSamay</strong></span><span
+              class="arrow">↗</span></a>
+          <a class="contact-link" href="https://github.com/SamayMasram" target="_blank"
+            rel="noopener noreferrer"><span><small>Repositories</small><strong>Explore my code</strong></span><span
+              class="arrow">↗</span></a>
+        </div>
+        <div class="contact-banner reveal">
+          <h3>Have a good problem?<br><span style="color:#777">Let's solve it.</span></h3><a class="btn"
+            href="mailto:samaymasram1404@gmail.com">Contact me <span>↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="wrap"><span>© <span id="year"></span> Samay Masram</span><span>Designed in monochrome · Built for the web</span><a href="#home">Back to top ↑</a></footer>
+  <footer class="wrap"><span>© <span id="year"></span> Samay Masram</span><span>Designed in monochrome · Built for the
+      web</span><a href="#home">Back to top ↑</a></footer>
   <script>
     const cursor = document.querySelector('.cursor');
     const ring = document.querySelector('.cursor-ring');
@@ -244,11 +1752,11 @@
       menuBtn.textContent = open ? 'CLOSE −' : 'MENU +';
     });
     navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navlinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.textContent='MENU +';
+      navlinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.textContent = 'MENU +';
     }));
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);} });
-    }, {threshold:.12});
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     document.getElementById('year').textContent = new Date().getFullYear();
     // Fetch actual daily contribution counts and draw a responsive, scrollable heatmap.
@@ -266,7 +1774,7 @@
       const fragment = document.createDocumentFragment();
       let total = 0;
       for (let date = new Date(start); date <= end; date.setDate(date.getDate() + 1)) {
-        const key = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+        const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         const item = byDate.get(key);
         const count = item ? Number(item.count) || 0 : 0;
         const level = count === 0 ? 0 : Math.max(1, Math.min(4, Number(item.level) || 1));
@@ -304,4 +1812,5 @@
     loadHeatmap();
   </script>
 </body>
+
 </html>
