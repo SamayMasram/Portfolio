@@ -119,7 +119,7 @@
 
 <br/><br/>
 
-*⭐ If you like my work, feel free to star a repo or say hi!*
+*⭐ Don't take rest after your first victory because if you fail in second, more lips are waiting to say that your first victory was just luck! - Dr. APJ Abdul Kalam*
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" alt="footer"/>
 
